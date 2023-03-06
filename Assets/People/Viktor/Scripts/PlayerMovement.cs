@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float vertical;
+
+    [SerializeField]
     private float speed;
 
     [SerializeField]
@@ -19,5 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizontal = Input.GetAxisRaw("horizontal");
+        vertical = Input.GetAxisRaw("vertical");
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 }
