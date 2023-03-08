@@ -6,6 +6,7 @@ using UnityEngine;
 public class T_PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    Collider2D collider2d;
     [SerializeField] T_PlayerBase playerBase;
 
     [HideInInspector] public float lastHorizontalVector;
@@ -19,11 +20,8 @@ public class T_PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        collider2d = GetComponent<Collider2D>();
         //lastMovedVector = new Vector2(1, 0); //creates projectile mometum when instantiated. Dont need this?
-    }
-    void Start()
-    {
-        
     }
 
     void Update()

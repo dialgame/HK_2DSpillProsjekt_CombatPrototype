@@ -5,20 +5,19 @@ using UnityEngine;
 public class T_SlimeMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    Collider2D collider2d;
     T_EnemyStats enemyStats;
     T_PlayerStats playerStats;
 
     [SerializeField] T_Enemy_DetectionZone detectionZone;
-
-    //public float damage = 1;
-    public float knockbackForce = 300f;
-    //public int moveSpeed = 15;
 
     private void Awake()
     {
         rb2d= GetComponent<Rigidbody2D>();
         enemyStats= GetComponent<T_EnemyStats>();
         playerStats= FindObjectOfType<T_PlayerStats>();
+        collider2d = GetComponent<Collider2D>();
+
     }
 
     private void FixedUpdate()
@@ -38,7 +37,7 @@ public class T_SlimeMovement : MonoBehaviour
         if(damageable != null )
         {
             Vector2 direction = (playerCollider.transform.position - transform.position).normalized;
-            Vector2 knockbackEffect = direction * knockbackForce;
+            Vector2 knockbackEffect = direction * enemyStats.currentKnockbackForce;
 
             damageable.OnTakeDamage(enemyStats.currentAttackDamage, knockbackEffect);
         }

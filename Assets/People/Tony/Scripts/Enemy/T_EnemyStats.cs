@@ -13,11 +13,12 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     public bool disableSimulation = false;
 
     //Enemy stats
-    [HideInInspector] public int currentHealth;
+    public int currentHealth;
     [HideInInspector] public int currentMoveSpeed;
     [HideInInspector] public int currentAttackDamage;
     [HideInInspector] public float currentAttackSpeed;
     [HideInInspector] public int currentDefense;
+    [HideInInspector] public int currentKnockbackForce;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         currentAttackDamage = enemyBase.AttackDamage;
         currentAttackSpeed = enemyBase.AttackSpeed;
         currentDefense = enemyBase.Defense;
+        currentKnockbackForce = enemyBase.KnockbackForce;
 
         rb2d= GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
@@ -69,20 +71,4 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         }
     }
 
-
-    //property. Needed to specify target for Enemy.
-    //public bool IsTargetable
-    //{
-    //    get { return targetable; }
-    //    set
-    //    {
-    //        targetable = value;
-    //        col2d.enabled = value;
-
-    //        if (disableSimulation)//toggle
-    //        {
-    //            rb2d.simulated = false;//turns off physics when object dies.
-    //        }
-    //    }
-    //}
 }

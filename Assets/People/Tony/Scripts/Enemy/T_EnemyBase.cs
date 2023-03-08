@@ -11,6 +11,7 @@ public class T_EnemyBase : ScriptableObject
     [SerializeField] int attackDamage;
     [SerializeField] float attackSpeed;
     [SerializeField] int defense;
+    [SerializeField] int knockbackForce;
 
     //properties
     public int MoveSpeed => moveSpeed;
@@ -18,6 +19,7 @@ public class T_EnemyBase : ScriptableObject
     public int AttackDamage => attackDamage;
     public float AttackSpeed => attackSpeed;
     public int Defense => defense;
+    public int KnockbackForce => knockbackForce;
 
  
     
