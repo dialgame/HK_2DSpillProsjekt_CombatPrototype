@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using static UnityEditor.Rendering.FilterWindow;
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
     [SerializeField] T_EnemyBase enemyBase;
+ 
     Rigidbody2D rb2d;
     Collider2D col2d;
 
@@ -20,6 +22,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     [HideInInspector] public int currentDefense;
     [HideInInspector] public int currentKnockbackForce;
 
+    //ElementStats
+    public ElementType currentType;
+
     private void Awake()
     {
         currentHealth = enemyBase.MaxHealth;
@@ -28,6 +33,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         currentAttackSpeed = enemyBase.AttackSpeed;
         currentDefense = enemyBase.Defense;
         currentKnockbackForce = enemyBase.KnockbackForce;
+        currentType = enemyBase.Type;
 
         rb2d= GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
@@ -71,4 +77,24 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         }
     }
 
+    private void ElementStatsVariation()
+    {
+        //if (currentType == enemyBase.Type)
+        //{
+        //    currentType = ElementType.Fire
+        //    if (targetCollider.CompareTag("Player"))
+        //    {
+        //        //effect on player
+        //    }
+        //    else if (targetCollider.CompareTag("Enemy"))
+        //    {
+        //        Debug.Log("Player Fire advantage");
+        //    }
+        //}
+    }
+
+    public void OnTakeDamage(int damage, Vector2 knockback, ElementType type)
+    {
+        //element dmg bonus?
+    }
 }

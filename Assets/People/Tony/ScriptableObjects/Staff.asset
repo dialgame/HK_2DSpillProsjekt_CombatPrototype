@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Staff
   m_EditorClassIdentifier: 
   weaponDamage: 10
-  weaponSpeed: 200
+  weaponSpeed: 400
   knockbackForce: 200
   isAvailable: 1

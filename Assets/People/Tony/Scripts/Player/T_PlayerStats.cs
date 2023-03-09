@@ -83,6 +83,11 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         Debug.Log("Player died");
     }
 
+    public void OnTakeDamage(int damage, Vector2 knockback, ElementType type)
+    {
+        //do nothing
+    }
+
     //property. Needed to specify target for Enemy.
     public bool IsTargetable
     {

@@ -11,6 +11,10 @@ public class AbilityChange : MonoBehaviour
     [SerializeField] GameObject[] weapons;
     [SerializeField] GameObject weaponHolder;
     [SerializeField] GameObject currentWeapon;
+
+    [SerializeField] Transform currentPosition;
+    [SerializeField] Transform previousPosition;
+
     bool isAvailable;//if player has it
     int cooldownTimer;
 

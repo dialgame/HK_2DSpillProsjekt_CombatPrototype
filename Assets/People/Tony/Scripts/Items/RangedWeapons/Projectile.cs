@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class Projectile : MonoBehaviour
 {
@@ -17,14 +18,22 @@ public class Projectile : MonoBehaviour
     [SerializeField] float duration;
     [SerializeField] float strength;
 
+    //Elemental variable
+    T_EnemyBase enemyBase;
+    //[SerializeField] ArenaState.ElementType elementState;
+ 
+
     private void Awake()
     {
+        enemyBase = FindObjectOfType<T_EnemyBase>();
         currentWeaponDamage = weaponBase.WeaponDamage;
     }
     void Start()
     {
         Destroy(gameObject, timeToDestroy);
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Transform enemyObject = collision.GetComponent<Transform>();
@@ -37,7 +46,13 @@ public class Projectile : MonoBehaviour
             Vector2 knockbackEffect = direction * weaponBase.KnockbackForce;
 
             damageableObject.OnTakeDamage(weaponBase.WeaponDamage, knockbackEffect);
+                   
             Destroy(gameObject);
+
+
+
+            //Sets collider target to a chosen ElementState. How?
+            //elementStates.targetCollider = enemyCollider;
 
             //reset variables after tweening?
             transform.DOComplete();
@@ -50,6 +65,8 @@ public class Projectile : MonoBehaviour
             if (enemyScale.IsPlaying()) return;
 
             transform.DOKill();
+
+
 
 
             Debug.Log(weaponBase.WeaponDamage);

@@ -6,8 +6,8 @@ public interface T_IDamageable
 {
     public void OnTakeDamage(int damage);
     public void OnTakeDamage(int damage, Vector2 knockback);
+    public void OnTakeDamage(int damage, Vector2 knockback, ElementType type);
     public void OnDeath();
 
-   // public void OnAttack(int damage, Vector2 knockback);
 
 }
