@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 public class T_SlimeMovement : MonoBehaviour
 {
@@ -9,7 +11,13 @@ public class T_SlimeMovement : MonoBehaviour
     T_EnemyStats enemyStats;
     T_PlayerStats playerStats;
 
+    //SpriteRenderer spriteColor;
+
     [SerializeField] T_Enemy_DetectionZone detectionZone;
+
+    //DOTween variables
+    [SerializeField] float duration;
+    [SerializeField] float strength;
 
     private void Awake()
     {
@@ -33,6 +41,7 @@ public class T_SlimeMovement : MonoBehaviour
     {
         Collider2D playerCollider = objectCollider.collider;
         T_PlayerStats damageable = objectCollider.collider.GetComponent<T_PlayerStats>();
+        SpriteRenderer damageableSprite = objectCollider.collider.GetComponent<SpriteRenderer>();
 
         if(damageable != null )
         {
@@ -40,9 +49,25 @@ public class T_SlimeMovement : MonoBehaviour
             Vector2 knockbackEffect = direction * enemyStats.currentKnockbackForce;
 
             damageable.OnTakeDamage(enemyStats.currentAttackDamage, knockbackEffect);
+
+            //Return back to original color?
+            //damageableSprite.DOColor(Color.white, 1f);
+
+            //losing knockbackEffect is tweening is used??
+            //transform.DOComplete();
+
+            //var playerPos = damageable.transform.DOShakePosition(duration, strength);
+
+            //var playerRot = damageable.transform.DOShakeRotation(duration, strength);
+
+            //var playerScale = damageable.transform.DOShakeScale(duration, strength);
+            //if (playerScale.IsPlaying()) return;
+
+            //transform.DOKill();
         }
 
     }
+
 
 
 }

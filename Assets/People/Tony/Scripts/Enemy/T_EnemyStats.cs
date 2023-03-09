@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+using DG.Tweening;
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {

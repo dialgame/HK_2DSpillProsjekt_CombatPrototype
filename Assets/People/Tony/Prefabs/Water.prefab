@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1935527490438686948}
   - component: {fileID: 1985104929636718004}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.022694906, g: 0.7792147, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponBase: {fileID: 11400000, guid: 035c0f9328c13814f94aaa3bcd322235, type: 2}
-  speed: 1
   timeToDestroy: 3
   projectileCollider: {fileID: 2624157796885616783}
   currentWeaponDamage: 0
-  currentWeaponSpeed: 0
+  duration: 0.5
+  strength: 0.1
