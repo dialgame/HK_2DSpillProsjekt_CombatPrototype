@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - swordHitbox
+  - OoB
+  - enemy
+  - player
   layers:
   - Default
   - TransparentFX
