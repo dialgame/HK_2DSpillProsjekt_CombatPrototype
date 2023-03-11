@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SwordSlash : MonoBehaviour
 {
+    [SerializeField] T_WeaponBaseSO weaponBase;
+    int currentWeaponDamage;
 
     public GameObject swordSlash;
 
@@ -33,6 +35,7 @@ public class SwordSlash : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        currentWeaponDamage = weaponBase.WeaponDamage;
     }
 
     void Start()
@@ -69,6 +72,7 @@ public class SwordSlash : MonoBehaviour
     {
         if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle") && enemyInRange) //Potentially need to fix this. Animation state is a bit off on first hit
         {
+            Debug.Log(currentWeaponDamage);
             Debug.Log("51 damage");
             firstDmg.SetActive(true);
         }

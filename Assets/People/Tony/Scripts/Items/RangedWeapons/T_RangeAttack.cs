@@ -27,7 +27,7 @@ public class T_RangeAttack : MonoBehaviour
         direction = mousePos - (Vector2)player.transform.position;
         //DirectionChecker(direction);
         FaceMouse();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             if(Time.time  > readyForNextShot)
             {

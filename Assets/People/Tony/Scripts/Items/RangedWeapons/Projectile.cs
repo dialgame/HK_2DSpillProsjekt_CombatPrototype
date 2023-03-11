@@ -46,6 +46,9 @@ public class Projectile : MonoBehaviour
             Vector2 knockbackEffect = direction * weaponBase.KnockbackForce;
 
             damageableObject.OnTakeDamage(weaponBase.WeaponDamage, knockbackEffect);
+
+            damageableObject.GetComponent<SpriteRenderer>().color = Color.white;
+            damageableObject.GetComponent<SpriteRenderer>().DOColor(Color.red, .5f).From();
                    
             Destroy(gameObject);
 
@@ -59,12 +62,14 @@ public class Projectile : MonoBehaviour
 
             var enemyPos = collision.transform.DOShakePosition(duration, strength);
 
-            var enemyRot = collision.transform.DOShakeRotation(duration, strength); 
-            
+            var enemyRot = collision.transform.DOShakeRotation(duration, strength);
+
+            collision.transform.localScale = Vector3.one;
             var enemyScale = collision.transform.DOShakeScale(duration, strength);
             if (enemyScale.IsPlaying()) return;
 
             transform.DOKill();
+
 
 
 

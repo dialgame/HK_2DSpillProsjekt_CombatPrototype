@@ -25,7 +25,7 @@ public class sword : MonoBehaviour
     {
 
         
-        if (other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             //Destroy(other.gameObject);
 
@@ -38,7 +38,7 @@ public class sword : MonoBehaviour
     {
 
 
-        if (other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             //Destroy(other.gameObject);
 
