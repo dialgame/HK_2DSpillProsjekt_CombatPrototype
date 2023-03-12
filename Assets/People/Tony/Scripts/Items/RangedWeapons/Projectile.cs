@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Transform enemyObject = collision.GetComponent<Transform>();
+        
         Collider2D enemyCollider = collision.gameObject.GetComponent<Collider2D>();
         T_EnemyStats damageableObject = collision.GetComponent<T_EnemyStats>();
 
@@ -46,21 +46,14 @@ public class Projectile : MonoBehaviour
             Vector2 knockbackEffect = direction * weaponBase.KnockbackForce;
 
             damageableObject.OnTakeDamage(weaponBase.WeaponDamage, knockbackEffect);
-
-            damageableObject.GetComponent<SpriteRenderer>().color = Color.white;
-            damageableObject.GetComponent<SpriteRenderer>().DOColor(Color.red, .5f).From();
-                   
+            Debug.Log(weaponBase.WeaponDamage);
             Destroy(gameObject);
 
-
-
-            //Sets collider target to a chosen ElementState. How?
-            //elementStates.targetCollider = enemyCollider;
-
-            //reset variables after tweening?
-            transform.DOComplete();
-
-            var enemyPos = collision.transform.DOShakePosition(duration, strength);
+            damageableObject.DOKill();
+            damageableObject.GetComponent<SpriteRenderer>().color = Color.red;
+            damageableObject.GetComponent<SpriteRenderer>().DOColor(Color.gray, .5f).From();
+                   
+            //var enemyPos = collision.transform.DOShakePosition(duration, strength);
 
             var enemyRot = collision.transform.DOShakeRotation(duration, strength);
 
@@ -68,13 +61,9 @@ public class Projectile : MonoBehaviour
             var enemyScale = collision.transform.DOShakeScale(duration, strength);
             if (enemyScale.IsPlaying()) return;
 
-            transform.DOKill();
+            //Sets collider target to a chosen ElementState. How?
+            //elementStates.targetCollider = enemyCollider;
 
-
-
-
-
-            Debug.Log(weaponBase.WeaponDamage);
         }
     }
 

@@ -42,16 +42,10 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTakeDamage(ElementType type)
     {
-        
+        //overworld element type check when attacking or taking an attack
     }
 
     public void OnTakeDamage(int damage)
@@ -76,16 +70,16 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         }
 
     }
+    public void OnTakeDamage(T_Ability ability, int damage, Vector2 knockback, ElementType type)
+    {
+        //do nothing for now
+    }
+
 
     public void OnDeath()
     {
         //Make something flashy
         Debug.Log("Player died");
-    }
-
-    public void OnTakeDamage(int damage, Vector2 knockback, ElementType type)
-    {
-        //do nothing
     }
 
     //property. Needed to specify target for Enemy.

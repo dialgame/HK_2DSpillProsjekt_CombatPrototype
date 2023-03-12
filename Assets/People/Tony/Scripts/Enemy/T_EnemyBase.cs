@@ -13,6 +13,8 @@ public class T_EnemyBase : ScriptableObject
     [SerializeField] int defense;
     [SerializeField] int knockbackForce;
     [SerializeField] ElementType type;
+    [SerializeField] List<LearnableAbilities> learnableMoves;
+
 
     //properties
     public int MoveSpeed => moveSpeed;
@@ -22,10 +24,17 @@ public class T_EnemyBase : ScriptableObject
     public int Defense => defense;
     public int KnockbackForce => knockbackForce;
 
-    public ElementType Type => type;
+    public ElementType Type { get; set; }
+
+    public List<LearnableAbilities> LearnableAbilities => learnableMoves;
 
     
     
+}
+public class LearnableAbilities
+{
+    [SerializeField] T_AbilitySO abilityBase;
+    public T_AbilitySO AbilityBase => abilityBase;
 }
 public enum ElementType { None, Fire, Lightning, Water, Wind, Melee }
 
