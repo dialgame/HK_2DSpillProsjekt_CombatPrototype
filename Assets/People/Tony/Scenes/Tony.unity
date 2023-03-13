@@ -397,6 +397,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2086360240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8097272912111510278, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2150687059321495013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,13 +421,25 @@ PrefabInstance:
       propertyPath: strength
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2150687058097474124, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: abilityBase
+      value: 
+      objectReference: {fileID: 11400000, guid: b1905ca053ecc3c498d39b1883b13d10, type: 2}
+    - target: {fileID: 2150687058097474124, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: currentType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150687058097474124, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: currentEnemyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2150687058097474125, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2150687058097474125, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.87
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 2150687058097474125, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: m_LocalPosition.y
@@ -469,6 +486,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8097272910277585440, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Name
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097272910983177921, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Name
+      value: WaterBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097272911487439098, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Name
+      value: ThunderBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097272911565492099, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Name
+      value: Gust
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097272912111510273, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: abilityHolder
+      value: 
+      objectReference: {fileID: 2086360240}
+    - target: {fileID: 8097272912111510278, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Name
+      value: AbilityHolder
+      objectReference: {fileID: 0}
     - target: {fileID: 8097272912206417202, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
       propertyPath: m_Name
       value: Player
@@ -517,5 +558,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8097272912111510272, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2624157796885616783}
   - component: {fileID: 1935527490438686948}
   - component: {fileID: 1985104929636718004}
-  - component: {fileID: -7715864921984187757}
+  - component: {fileID: 6227326830549515987}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: ThunderBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9528302, g: 0.9098568, b: 0.022472408, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -143,7 +143,8 @@ MonoBehaviour:
   currentWeaponDamage: 0
   duration: 0.5
   strength: 0.1
---- !u!96 &-7715864921984187757
+  abilitySO: {fileID: 11400000, guid: 76bf53d5cc34e794583e457c779f8882, type: 2}
+--- !u!96 &6227326830549515987
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0

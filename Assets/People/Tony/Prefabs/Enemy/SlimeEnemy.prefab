@@ -173,7 +173,9 @@ MonoBehaviour:
   currentAttackSpeed: 0
   currentDefense: 0
   currentKnockbackForce: 0
-  currentType: 0
+  duration: 0
+  strength: 0
+  currentType: 1
 --- !u!1 &2150687058789883066
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,20 +7,23 @@ public class T_AbilitySO : ScriptableObject
 {
     [SerializeField] string abilityName;
     [SerializeField] string abilityDescription;
-    [SerializeField] ElementType abilityType;
     [SerializeField] int abilityPower;
     [SerializeField] int abilitySpeed;
     [SerializeField] int abilityRange;
     [SerializeField] int manaCost;
+    [SerializeField] ElementType abilityType;
 
 
     public string AbilityName => abilityName;
     public string AbilityDescription => abilityDescription;
-    public ElementType AbilityType { get; set; }
-    public int AbilityPower => manaCost;
+    public int AbilityPower => abilityPower;
     public int AbilitySpeed => abilitySpeed;
     public int AbilityRange => abilityRange;
     public int ManaCost => manaCost;
+    public ElementType AbilityType => abilityType;
+   // public bool Death { get; set; }
+    public float Critical { get; set; }
+    public float TypeEffectiveness { get; set; }
 
 }
 

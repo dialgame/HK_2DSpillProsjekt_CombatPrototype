@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class T_RangeAttack : MonoBehaviour
+public class T_AbilityAttack : MonoBehaviour
 {
     [SerializeField] Transform player;
 

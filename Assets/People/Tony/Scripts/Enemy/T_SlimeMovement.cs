@@ -15,9 +15,9 @@ public class T_SlimeMovement : MonoBehaviour
 
     [SerializeField] T_Enemy_DetectionZone detectionZone;
 
-    //DOTween variables
-    [SerializeField] float duration;
-    [SerializeField] float strength;
+    ////DOTween variables
+    //[SerializeField] float duration;
+    //[SerializeField] float strength;
 
     private void Awake()
     {

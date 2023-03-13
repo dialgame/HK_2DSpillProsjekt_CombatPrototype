@@ -7,7 +7,7 @@ using System.Runtime.ConstrainedExecution;
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
     [SerializeField] T_EnemyBase enemyBase;
-    [SerializeField] T_AbilitySO abilityBase;
+    //[SerializeField] T_AbilitySO abilityBase;
 
     Rigidbody2D rb2d;
     Collider2D col2d;
@@ -22,13 +22,14 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     [HideInInspector] public float currentAttackSpeed;
     [HideInInspector] public int currentDefense;
     [HideInInspector] public int currentKnockbackForce;
+    public ElementType currentEnemyType;
 
     //DOTween variables
     [SerializeField] float duration;
     [SerializeField] float strength;
 
     //ElementStats
-    public ElementType currentType;
+    //public ElementType currentType;
 
 
 
@@ -40,7 +41,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         currentAttackSpeed = enemyBase.AttackSpeed;
         currentDefense = enemyBase.Defense;
         currentKnockbackForce = enemyBase.KnockbackForce;
-        currentType = enemyBase.Type;
+        currentEnemyType = enemyBase.EnemyType; //choose which element in SO!
 
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
@@ -81,7 +82,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         }
 
 
-        float enemyType = TypeChart.TypeEffectiveness(ability.AbilityBase.AbilityType, this.enemyBase.Type);
+        float enemyType = TypeChart.TypeEffectiveness(ability.AbilityBase.AbilityType, this.enemyBase.EnemyType);
 
         DamageDetails damageDetails = new DamageDetails()
         {
@@ -144,10 +145,8 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
             //    Death = false,
             //};
             //float modifiers = Random.Range(0.85f, 1f) * enemyType * critical;
-
-            ////float attackDamage = (2 * enemyBase.AttackDamage + 10) / 250f;
-
             //float damageValue = ability.AbilityBase.AbilityPower * (currentAttackDamage / currentDefense);
+
             //int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
             //currentAttack -> damageOutput

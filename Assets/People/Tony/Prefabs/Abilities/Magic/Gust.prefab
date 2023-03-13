@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1985104929636718004}
   - component: {fileID: -3752907453602611905}
   m_Layer: 0
-  m_Name: Wind
+  m_Name: Gust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   currentWeaponDamage: 0
   duration: 0.5
   strength: 0.1
+  abilitySO: {fileID: 11400000, guid: 7a5e2208ed0835a4db63c3d1287d3f4b, type: 2}
 --- !u!96 &-3752907453602611905
 TrailRenderer:
   serializedVersion: 2
