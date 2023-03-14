@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3290917c71528448ab58217ca279076, type: 3}
-  m_Name: ThunderBall
+  m_Name: NormalAbility
   m_EditorClassIdentifier: 
-  abilityName: ThunderBall
-  abilityDescription: 
+  abilityName: Tackle
+  abilityDescription: Shoots fire
   abilityPower: 100
   abilitySpeed: 1
   abilityRange: 1
   manaCost: 0
-  abilityType: 2

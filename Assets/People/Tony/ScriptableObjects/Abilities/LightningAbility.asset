@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9357bf945238ab4f917a4f6846a9ae0, type: 3}
-  m_Name: SlimeEnemy
+  m_Script: {fileID: 11500000, guid: a3290917c71528448ab58217ca279076, type: 3}
+  m_Name: LightningAbility
   m_EditorClassIdentifier: 
-  moveSpeed: 500
-  maxHealth: 1000
-  attackDamage: 100
-  attackSpeed: 5
-  defense: 1
-  knockbackForce: 1500
+  abilityName: ThunderBall
+  abilityDescription: 
+  abilityPower: 100
+  abilitySpeed: 1
+  abilityRange: 1
+  manaCost: 0
+  abilityType: 2

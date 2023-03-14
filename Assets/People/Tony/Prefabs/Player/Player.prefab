@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8097272910983177932}
   - component: {fileID: 8097272910983177923}
   m_Layer: 0
-  m_Name: Wand
+  m_Name: WaterBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8097272911487442693}
   - component: {fileID: 8097272911487442692}
   m_Layer: 0
-  m_Name: Book
+  m_Name: ThunderBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 8097272911565492110}
   - component: {fileID: 8097272911565492109}
   m_Layer: 0
-  m_Name: Bow
+  m_Name: Gust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,10 +414,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8097272912111510279}
-  - component: {fileID: 8097272912111510272}
   - component: {fileID: 8097272912111510273}
   m_Layer: 0
-  m_Name: WeaponHolder
+  m_Name: AbilityWeapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,22 +441,6 @@ Transform:
   m_Father: {fileID: 8097272912206417212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8097272912111510272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8097272912111510278}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9381c740ddc1ef349b5b676274b038ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeaponIndex: 0
-  weapons: []
-  weaponHolder: {fileID: 8097272912111510278}
-  currentWeapon: {fileID: 0}
 --- !u!114 &8097272912111510273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,10 +453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9380186c4a19f644922beb74d43b8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponIndex: 0
-  weapons: []
-  weaponHolder: {fileID: 8097272912111510278}
-  currentWeapon: {fileID: 0}
+  currentAbilityIndex: 0
+  abilities: []
+  abilityHolder: {fileID: 8097272912111510278}
+  currentAbility: {fileID: 0}
   currentPosition: {fileID: 0}
   previousPosition: {fileID: 0}
 --- !u!1 &8097272912206417202
@@ -640,6 +623,7 @@ MonoBehaviour:
   currentAttackSpeed: 0
   currentDefense: 0
   currentMagnet: 0
+  elementResistance: {fileID: 11400000, guid: 755d21b8e09c9bd4d9082848e22f5b65, type: 2}
   invincibilityDuration: 0
 --- !u!1001 &5254286129883450275
 PrefabInstance:
@@ -698,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4086369779727344003, guid: 6afc2710740d48e4eb8950b6fbdefcc3, type: 3}
       propertyPath: m_Name
-      value: Staff
+      value: Fire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6afc2710740d48e4eb8950b6fbdefcc3, type: 3}

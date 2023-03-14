@@ -22,6 +22,10 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
     [HideInInspector] public int currentDefense;
     [HideInInspector] public float currentMagnet;
 
+    //Element variable
+    [SerializeField] private ElementResistanceSO elementResistance;
+
+
     //I_Frames, invincibility time frame
     [Header("I-Frames")]
     [SerializeField] float invincibilityDuration;
@@ -43,24 +47,10 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         col2d = GetComponent<Collider2D>();
     }
 
-    public void OnTakeDamage(ElementType type)
+    public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
     {
-        //overworld element type check when attacking or taking an attack
-    }
-
-    public void OnTakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if(currentHealth <= 0)
-        {
-            OnDeath();
-        }
-        Debug.Log("player Took damage");
-    }
-
-    public void OnTakeDamage(int damage, Vector2 knockback)
-    {
-        currentHealth -= damage;
+        currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
+        Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
 
         //apply force to the slime
         rb2d.AddForce(knockback); //ForceMode2D.Impulse
@@ -68,12 +58,13 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         {
             OnDeath();
         }
+    }
 
-    }
-    public void OnTakeDamage(T_Ability ability, int damage, Vector2 knockback, ElementType type)
+    public void OnTakeDamage(ElementTypes elementType)
     {
-        //do nothing for now
+        throw new System.NotImplementedException();
     }
+
 
 
     public void OnDeath()
@@ -81,6 +72,7 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         //Make something flashy
         Debug.Log("Player died");
     }
+
 
     //property. Needed to specify target for Enemy.
     public bool IsTargetable

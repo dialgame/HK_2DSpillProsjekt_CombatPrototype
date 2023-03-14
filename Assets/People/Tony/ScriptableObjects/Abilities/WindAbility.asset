@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52de25620199113419b8ca3de4f5c913, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: a3290917c71528448ab58217ca279076, type: 3}
+  m_Name: WindAbility
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  maxMana: 100
-  moveSpeed: 5
-  attackDamage: 5
-  attackSpeed: 5
-  defense: 5
-  magnet: 1
+  abilityName: Gust
+  abilityDescription: 
+  abilityPower: 100
+  abilitySpeed: 1
+  abilityRange: 1
+  manaCost: 0
+  abilityType: 4
