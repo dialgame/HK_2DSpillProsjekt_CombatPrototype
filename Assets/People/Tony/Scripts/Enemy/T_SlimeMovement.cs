@@ -15,9 +15,9 @@ public class T_SlimeMovement : MonoBehaviour
 
     [SerializeField] T_Enemy_DetectionZone detectionZone;
 
-    //DOTween variables
-    [SerializeField] float duration;
-    [SerializeField] float strength;
+    ////DOTween variables
+    //[SerializeField] float duration;
+    //[SerializeField] float strength;
 
     private void Awake()
     {
@@ -37,37 +37,8 @@ public class T_SlimeMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D objectCollider)
-    {
-        Collider2D playerCollider = objectCollider.collider;
-        T_PlayerStats damageable = objectCollider.collider.GetComponent<T_PlayerStats>();
-        SpriteRenderer damageableSprite = objectCollider.collider.GetComponent<SpriteRenderer>();
-
-        if(damageable != null )
-        {
-            Vector2 direction = (playerCollider.transform.position - transform.position).normalized;
-            Vector2 knockbackEffect = direction * enemyStats.currentKnockbackForce;
-
-            damageable.OnTakeDamage(enemyStats.currentAttackDamage, knockbackEffect);
-
-            //Return back to original color?
-            //damageableSprite.DOColor(Color.white, 1f);
-
-            //losing knockbackEffect is tweening is used??
-            //transform.DOComplete();
-
-            //var playerPos = damageable.transform.DOShakePosition(duration, strength);
-
-            //var playerRot = damageable.transform.DOShakeRotation(duration, strength);
-
-            //var playerScale = damageable.transform.DOShakeScale(duration, strength);
-            //if (playerScale.IsPlaying()) return;
-
-            //transform.DOKill();
-        }
-
-    }
-
+    //Slime deals dmg from collision in enemy stats, because every enemy have collision dmg.
+    //Can add another attack function if slime actually attacks
 
 
 }

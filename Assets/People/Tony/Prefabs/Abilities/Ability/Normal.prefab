@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2624157796885616783}
   - component: {fileID: 1935527490438686948}
   - component: {fileID: 1985104929636718004}
-  - component: {fileID: -3752907453602611905}
+  - component: {fileID: -7715864921984187757}
   m_Layer: 0
-  m_Name: Wind
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.031372547, g: 1, b: 0.18586782, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,12 +138,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponBase: {fileID: 11400000, guid: 035c0f9328c13814f94aaa3bcd322235, type: 2}
-  timeToDestroy: 3
-  projectileCollider: {fileID: 2624157796885616783}
   currentWeaponDamage: 0
+  timeToDestroy: 3
+  abilitySO: {fileID: 11400000, guid: d9c4e5bcc1ddfce44950704dd8ab3005, type: 2}
+  currentAbilityPower: 0
+  abilityElementType: 0
   duration: 0.5
   strength: 0.1
---- !u!96 &-3752907453602611905
+--- !u!96 &-7715864921984187757
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0

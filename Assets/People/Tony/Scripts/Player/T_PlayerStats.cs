@@ -22,6 +22,10 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
     [HideInInspector] public int currentDefense;
     [HideInInspector] public float currentMagnet;
 
+    //Element variable
+    [SerializeField] private ElementResistanceSO elementResistance;
+
+
     //I_Frames, invincibility time frame
     [Header("I-Frames")]
     [SerializeField] float invincibilityDuration;
@@ -42,31 +46,11 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
     {
-        
-    }
-
-    public void OnTakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if(currentHealth <= 0)
-        {
-            OnDeath();
-        }
-        Debug.Log("player Took damage");
-    }
-
-    public void OnTakeDamage(int damage, Vector2 knockback)
-    {
-        currentHealth -= damage;
+        currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
+        Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
 
         //apply force to the slime
         rb2d.AddForce(knockback); //ForceMode2D.Impulse
@@ -74,8 +58,14 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         {
             OnDeath();
         }
-
     }
+
+    public void OnTakeDamage(ElementTypes elementType)
+    {
+        throw new System.NotImplementedException();
+    }
+
+
 
     public void OnDeath()
     {
@@ -83,10 +73,6 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         Debug.Log("Player died");
     }
 
-    public void OnTakeDamage(int damage, Vector2 knockback, ElementType type)
-    {
-        //do nothing
-    }
 
     //property. Needed to specify target for Enemy.
     public bool IsTargetable
