@@ -21,7 +21,7 @@ public class T_MeleeAttack : MonoBehaviour
     public bool isAttacking = false;
     //private bool enemyInRange = false;
     public static T_MeleeAttack instance;
-    float attackCooldown;
+    int attackIndex = 4;
 
     Vector3 direction;
     private void Awake()
@@ -70,6 +70,22 @@ public class T_MeleeAttack : MonoBehaviour
     }
     private void AttackChain()
     {
+        switch (attackIndex)
+        {
+            //default:
+            //    if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) //Potentially need to fix this. Animation state is a bit off on first hit
+            //    {
+            //        Debug.Log("1ST");
+            //        //Debug.Log("51 damage");
+            //        //firstDmg.SetActive(true);
+            //    }
+            //    break;
+            //case 1:
+            //case 2: 
+            //case 3:
+            //case 4:
+
+        }
         //Use switch statements for meleehit?
         if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) //Potentially need to fix this. Animation state is a bit off on first hit
         {

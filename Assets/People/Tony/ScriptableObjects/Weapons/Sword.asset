@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 100
   weaponSpeed: 100
-  knockbackForce: 0
+  knockbackForce: 200
   isAvailable: 1
