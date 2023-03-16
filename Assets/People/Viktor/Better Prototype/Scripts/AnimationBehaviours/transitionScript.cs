@@ -13,19 +13,36 @@ public class transitionScript : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (SwordSlash.instance.isAttacking)
+       //if (SwordSlash.instance.isAttacking)
+       // {
+       //     SwordSlash.instance.myAnim.Play("Attack 2");
+       //     SwordSlash.instance.sr.color = Color.red;
+       //     //Debug.Log("Second slash");
+       // }
+
+        if (T_MeleeAttack.instance.isAttacking)
         {
-            SwordSlash.instance.myAnim.Play("Attack 2");
-            SwordSlash.instance.sr.color = Color.red;
-            //Debug.Log("Second slash");
+            T_MeleeAttack.instance.weaponAnimator.Play("Attack 2");
+            T_MeleeAttack.instance.weaponSprite.color = Color.red;
+
+            T_MeleeAttack.instance.weaponCollider.enabled = true;
+
+            //Debug.Log("First slash");
+        }
+        else
+        {
+            T_MeleeAttack.instance.weaponCollider.enabled = false;
+
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SwordSlash.instance.isAttacking = false;
-        
+        //SwordSlash.instance.isAttacking = false;
+
+        T_MeleeAttack.instance.isAttacking = false;
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

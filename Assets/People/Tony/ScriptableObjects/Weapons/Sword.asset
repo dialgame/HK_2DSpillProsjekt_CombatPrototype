@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a600372f832cfeb48b5bc0e60bd640e7, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  weaponDamage: 10000
-  weaponSpeed: 0
-  knockbackForce: 10000
-  isAvailable: 0
+  weaponDamage: 100
+  weaponSpeed: 100
+  knockbackForce: 0
+  isAvailable: 1

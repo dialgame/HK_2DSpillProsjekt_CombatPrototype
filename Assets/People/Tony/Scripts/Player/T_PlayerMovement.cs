@@ -9,6 +9,15 @@ public class T_PlayerMovement : MonoBehaviour
     Collider2D collider2d;
     [SerializeField] T_PlayerBase playerBase;
 
+    float horizontal;
+    float vertical;
+
+    bool isFacingRight = true;
+    public bool canMove = true;
+    bool isMoving = false;
+    [SerializeField] private float idleFriction;
+
+
     [HideInInspector] public float lastHorizontalVector;
     [HideInInspector] public float lastVerticalVector;
     [HideInInspector] public Vector2 moveDirection;
@@ -27,14 +36,15 @@ public class T_PlayerMovement : MonoBehaviour
     void Update()
     {
         InputManagement();
+       // Flip();
     }
 
     private void InputManagement()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;//normalized goes between -1, 0 and 1.
+        moveDirection = new Vector2(horizontal, vertical).normalized;//normalized goes between -1, 0 and 1.
 
         //checks direction inputs
         if(moveDirection.x != 0)
@@ -62,6 +72,53 @@ public class T_PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        rb2d.velocity = new Vector2(moveDirection.x * playerBase.MoveSpeed, moveDirection.y * playerBase.MoveSpeed);
+        //rb2d.velocity = new Vector2(moveDirection.x * playerBase.MoveSpeed * Time.fixedDeltaTime, moveDirection.y * playerBase.MoveSpeed * Time.fixedDeltaTime);
+
+        if (canMove == true && moveDirection != Vector2.zero)
+        {
+            rb2d.velocity = new Vector2(moveDirection.x * playerBase.MoveSpeed * Time.fixedDeltaTime, moveDirection.y * playerBase.MoveSpeed * Time.fixedDeltaTime);
+
+
+            if (moveDirection.x < 0)
+            {
+                //spriteRenderer.flipX = true;
+                // playerTransform.rotation = Quaternion.Euler(0, 180, 0);
+                // Animation: gameObject.BroadcastMessage("IsFacingRight", false);
+            }
+            else if (moveDirection.x > 0)
+            {
+                //spriteRenderer.flipX = false;
+                //playerTransform.rotation = Quaternion.Euler(0, 0, 0);
+                //Animation  gameObject.BroadcastMessage("IsFacingRight", true);
+            }
+
+            isMoving = true;
+        }
+        else
+        {
+            rb2d.velocity = Vector2.Lerp(rb2d.velocity, Vector2.zero, idleFriction);//Stops the player from sliding.
+            isMoving = false;
+        }
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+
+    public void LockMovement()
+    {
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
     }
 }

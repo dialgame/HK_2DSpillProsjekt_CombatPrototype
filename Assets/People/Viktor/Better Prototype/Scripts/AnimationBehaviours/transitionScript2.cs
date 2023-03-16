@@ -7,22 +7,34 @@ public class transitionScript2 : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SwordSlash.instance.thirdDmg.SetActive(false);
+        ////SwordSlash.instance.thirdDmg.SetActive(false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SwordSlash.instance.sr.color = Color.magenta;
+        //SwordSlash.instance.sr.color = Color.magenta;
+
+        T_MeleeAttack.instance.weaponSprite.color = Color.magenta;
+        //T_MeleeAttack.instance.weaponCollider.enabled = true;
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SwordSlash.instance.isAttacking = false;
-        SwordSlash.instance.myAnim.Play("Idle");
-        SwordSlash.instance.sr.color = Color.white;
-        
+        //SwordSlash.instance.isAttacking = false;
+        //SwordSlash.instance.myAnim.Play("Idle");
+        //SwordSlash.instance.sr.color = Color.white;
+
+        //T_MeleeAim.instance.isAttacking = false;
+
+        T_MeleeAttack.instance.weaponAnimator.Play("Idle");
+        T_MeleeAttack.instance.weaponSprite.color = Color.white;
+       // T_MeleeAttack.instance.weaponCollider.enabled = false;
+
+        //T_MeleeAim.instance.weaponCollider.enabled = false;
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
