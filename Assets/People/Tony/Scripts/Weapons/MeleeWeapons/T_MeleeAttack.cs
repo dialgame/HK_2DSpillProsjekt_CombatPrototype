@@ -10,111 +10,193 @@ public class T_MeleeAttack : MonoBehaviour
     [SerializeField] T_WeaponBaseSO weaponBase;
     [HideInInspector] public int currentWeaponDamage;
     [HideInInspector] public int currentWeaponSpeed;
-
-    [SerializeField] float attackInterval;//Same as AttackInterval
-    float readyForNextAttack = 0;
-
-    public Collider2D weaponCollider;
-    public Animator weaponAnimator;
-    public SpriteRenderer weaponSprite;
-
-    public bool isAttacking = false;
-    //private bool enemyInRange = false;
-    public static T_MeleeAttack instance;
-    int attackIndex = 4;
-
     Vector3 direction;
+
+  //  [SerializeField] float attackInterval;//Same as AttackInterval
+  //  float readyForNextAttack = 0;
+
+  //  public Collider2D weaponCollider;
+   // public SpriteRenderer weaponSprite;
+
+   // public bool isAttacking = false;
+    //private bool enemyInRange = false;
+    public Animator weaponAnimator;
+    public static T_MeleeAttack instance;
+    //T_MeleeHit meleeHit;
+
+
+
+    [Header("Combo Settings")]
+    [SerializeField] private float comboTimeWindow = 1f; // The time window in which the combo can be triggered
+    [SerializeField] private int comboLength = 3; // The number of clicks required to trigger the combo
+    //[SerializeField] private float clickCooldown; //Time that needs to pass before the next combo phase can be triggered. Not relevant anymore, keeping it just in case.
+
+    [Header("Click Cooldowns")]
+    [SerializeField] private float secondClickCooldown = 0.5f; // Time that needs to pass before the second combo phase can be triggered
+    [SerializeField] private float thirdClickCooldown = 0.7f; // Time that needs to pass before the third combo phase can be triggered
+    [SerializeField] private float comboResetCooldown = 1f; // Time 
+
+    [Header("Is enemy in range?")]
+    public bool enemyInRange;
+
+    private float lastClickTime;
+    private float lastComboTriggerTime;
+    public int comboClickCount;
+    public ComboState comboState = ComboState.Idle;
+
+    [Header("Visual Damage Numbers")]
+    public GameObject firstDmg;
+    public GameObject secondDmg;
+    public GameObject thirdDmg;
+
+
+    public enum ComboState
+    {
+        Idle,
+        FirstClick,
+        SecondClick,
+        ThirdClick
+    }
+
+
     private void Awake()
     {
         currentWeaponDamage = weaponBase.WeaponDamage;
         currentWeaponSpeed = weaponBase.WeaponSpeed;
         instance = this;
-        weaponCollider.enabled = false;
+
+        firstDmg.SetActive(false);
+        secondDmg.SetActive(false);
+        thirdDmg.SetActive(false);
+        weaponAnimator = GetComponent<Animator>();
     }
-    void Update()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = mousePos - (Vector2)player.transform.position;
-        //DirectionChecker(direction);
-        FaceMouse();
-        OnAttack();
-    }
-    private void OnAttack()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (Time.time > readyForNextAttack && !isAttacking)
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction = mousePos - (Vector2)player.transform.position;
+        FaceMouse();
+
+
+            float currentTime = Time.time;
+
+            // Determine which phase of the combo we are currently in. This allows for different cooldowns between each hit in the combo.
+            float clickCooldown = 0f;
+            switch (comboState)
             {
-                //playerMovement.LockMovement();
-                //weaponCollider.enabled = true;
-                isAttacking = true;
-
-                AttackChain();
-                readyForNextAttack = Time.time + 1 / attackInterval;
+                case ComboState.FirstClick:
+                    clickCooldown = secondClickCooldown;
+                    break;
+                case ComboState.SecondClick:
+                    clickCooldown = thirdClickCooldown;
+                    break;
+                case ComboState.ThirdClick:
+                    clickCooldown = comboResetCooldown;
+                    break;
+                default:
+                    clickCooldown = 0f;
+                    break;
             }
-       
 
-        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (Time.time < readyForNextAttack && isAttacking)
+            if (currentTime - lastComboTriggerTime > clickCooldown)
             {
-                //playerMovement.UnlockMovement();
-                //weaponCollider.enabled = false;
-                isAttacking = false;
+                if (currentTime - lastClickTime < comboTimeWindow)
+                {
+                    comboClickCount++;
+                }
+                else
+                {
+                    comboClickCount = 1;
+                    comboState = ComboState.FirstClick;
+                    weaponAnimator.Play("Base Layer.ATK1", 0, 0);
 
+                    lastComboTriggerTime = currentTime;
+
+                   // Debug.Log("START COMBO, previous combo wasnt maxed OR this NEW combo isn't started instantly after previous combo");
+
+                    if (enemyInRange)
+                    {
+
+                        //Debug.Log("Enemy hit for 52 damage");
+                        //thirdDmg.SetActive(false);
+                        //firstDmg.SetActive(true);
+
+                    }
+                }
             }
 
+            lastClickTime = currentTime;
+
+            if (comboClickCount == 2 && comboState == ComboState.FirstClick)
+            {
+                comboState = ComboState.SecondClick;
+                weaponAnimator.Play("Base Layer.ATK2", 0, 0);
+
+                //Debug.Log("SECONDHIT");
+
+                lastComboTriggerTime = currentTime;
+
+                if (enemyInRange)
+                {
+                    //Debug.Log("Enemy hit for 61 damage");
+                  //  firstDmg.SetActive(false);
+                    //secondDmg.SetActive(true);
+                }
+
+            }
+            else if (comboClickCount == 3 && comboState == ComboState.SecondClick)
+            {
+                comboState = ComboState.ThirdClick;
+                weaponAnimator.Play("Base Layer.ATK3", 0, 0);
+
+               // Debug.Log("THIRDHIT");
+
+                lastComboTriggerTime = currentTime;
+
+                if (enemyInRange)
+                {
+
+                   // Debug.Log("Enemy hit for 96 damage");
+                  //  secondDmg.SetActive(false);
+                  //  thirdDmg.SetActive(true);
+                }
+            }
+
+            else if (comboClickCount > comboLength || comboState == ComboState.Idle)
+            {
+
+                comboClickCount = 1;
+                comboState = ComboState.FirstClick;
+                weaponAnimator.Play("Base Layer.ATK1", 0, 0);
+
+                lastComboTriggerTime = currentTime;
+
+                //Debug.Log("NEW COMBO");
+
+                if (enemyInRange)
+                {
+                   // Debug.Log("Enemy hit for 52 damage");
+                  //  thirdDmg.SetActive(false);
+                   // firstDmg.SetActive(true);
+                }
+            }
         }
     }
-    private void AttackChain()
+
+    //Detects sword hitbox collision from child object
+
+    public void CollisionDetected(T_MeleeHit meleeHit)
     {
-        switch (attackIndex)
-        {
-            //default:
-            //    if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) //Potentially need to fix this. Animation state is a bit off on first hit
-            //    {
-            //        Debug.Log("1ST");
-            //        //Debug.Log("51 damage");
-            //        //firstDmg.SetActive(true);
-            //    }
-            //    break;
-            //case 1:
-            //case 2: 
-            //case 3:
-            //case 4:
+        enemyInRange = true;
+        Debug.Log("detected");
+    }
 
-        }
-        //Use switch statements for meleehit?
-        if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) //Potentially need to fix this. Animation state is a bit off on first hit
-        {
-            Debug.Log("1ST");
-            //Debug.Log("51 damage");
-            //firstDmg.SetActive(true);
-        }
-
-        if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack 1"))
-        {
-            Debug.Log("2ND");
-            //firstDmg.SetActive(false);
-            //secondDmg.SetActive(true);
-
-        }
-
-        if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack 2"))
-        {
-            Debug.Log("3RD");
-            //thirdDmg.SetActive(true);
-            //secondDmg.SetActive(false);
-        }
-
-        if (weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack 3"))
-        {
-            Debug.Log("FINAL");
-            //fourthDmg.SetActive(true);
-            //thirdDmg.SetActive(false);
-        }
+    public void CollisionExit(T_MeleeHit meleeHit)
+    {
+        enemyInRange = false;
+        Debug.Log("collision exit");
     }
     private void FaceMouse()
     {

@@ -58,7 +58,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731611278}
-  m_LocalRotation: {x: -0.5735764, y: -0.8191521, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,7 +66,7 @@ Transform:
   - {fileID: 1998060812}
   m_Father: {fileID: 141683952}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 70}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &731611280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,11 +136,18 @@ MonoBehaviour:
   weaponBase: {fileID: 11400000, guid: 84c632bb2a861b44487fdc41e3801686, type: 2}
   currentWeaponDamage: 0
   currentWeaponSpeed: 0
-  attackInterval: 3
-  weaponCollider: {fileID: 1998060813}
   weaponAnimator: {fileID: 731611282}
-  weaponSprite: {fileID: 731611280}
-  isAttacking: 0
+  comboTimeWindow: 1
+  comboLength: 3
+  secondClickCooldown: 0.5
+  thirdClickCooldown: 0.7
+  comboResetCooldown: 1
+  enemyInRange: 0
+  comboClickCount: 0
+  comboState: 0
+  firstDmg: {fileID: 0}
+  secondDmg: {fileID: 0}
+  thirdDmg: {fileID: 0}
 --- !u!95 &731611282
 Animator:
   serializedVersion: 5
@@ -321,14 +328,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998060811}
-  m_LocalRotation: {x: 0, y: 0, z: 0.17364816, w: 0.9848078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731611279}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1998060813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -342,7 +349,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -353,7 +360,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.6}
+  m_Size: {x: 1, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &1998060814
 MonoBehaviour:
@@ -370,6 +377,7 @@ MonoBehaviour:
   weaponBase: {fileID: 11400000, guid: 84c632bb2a861b44487fdc41e3801686, type: 2}
   currentWeaponDamage: 0
   weaponElementType: 0
+  meleeAttack: {fileID: 731611281}
   duration: 0.5
   strength: 0.1
 --- !u!1 &8097272910822740131
@@ -1011,6 +1019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8097272912111510279}
     m_Modifications:
+    - target: {fileID: 4086369779727344000, guid: 6afc2710740d48e4eb8950b6fbdefcc3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4086369779727344001, guid: 6afc2710740d48e4eb8950b6fbdefcc3, type: 3}
       propertyPath: player
       value: 
