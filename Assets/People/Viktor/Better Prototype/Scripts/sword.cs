@@ -29,7 +29,7 @@ public class sword : MonoBehaviour
         {
             //Destroy(other.gameObject);
 
-            transform.parent.GetComponent<SwordSlash>().CollisionDetected(this);
+            transform.parent.GetComponent<ComboSystem>().CollisionDetected(this);
           
         }
     }
@@ -42,7 +42,7 @@ public class sword : MonoBehaviour
         {
             //Destroy(other.gameObject);
 
-            transform.parent.GetComponent<SwordSlash>().CollisionExit(this);
+            transform.parent.GetComponent<ComboSystem>().CollisionExit(this);
         }
     }
 
