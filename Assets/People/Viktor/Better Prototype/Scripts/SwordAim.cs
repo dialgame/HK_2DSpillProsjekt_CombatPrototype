@@ -9,7 +9,7 @@ public class SwordAim : MonoBehaviour
     private Vector3 mousePos;
     private float horizontal;
 
-    
+
 
     private bool isFacingRight = true;
 
@@ -17,7 +17,7 @@ public class SwordAim : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        
+
     }
 
     // Update is called once per frame
@@ -27,17 +27,70 @@ public class SwordAim : MonoBehaviour
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition); //setting vector 3 to our input mouse position
 
-        Vector3 rotation = mousePos - transform.position;
+        Vector3 direction = mousePos - transform.position;
+        direction.Normalize();
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; //Rad2deg Converts radience to degrees
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        float snappedAngle = Mathf.Round(angle / 45.0f) * 45.0f;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        if (snappedAngle < 0.0f)
+        {
+            snappedAngle += 360.0f;
+        }
+
+        if (snappedAngle > 337.5f || snappedAngle < 22.5f)
+        {
+            // right
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            
+        }
+        else if (snappedAngle >= 22.5f && snappedAngle < 67.5f)
+        {
+            // up-right
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+            
+        }
+        else if (snappedAngle >= 67.5f && snappedAngle < 112.5f)
+        {
+            // up
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            
+        }
+        else if (snappedAngle >= 112.5f && snappedAngle < 157.5f)
+        {
+            // up-left
+            transform.rotation = Quaternion.Euler(0, 0, 135);
+            
+        }
+        else if (snappedAngle >= 157.5f && snappedAngle < 202.5f)
+        {
+            // left
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+            
+        }
+        else if (snappedAngle >= 202.5f && snappedAngle < 247.5f)
+        {
+            // down-left
+            transform.rotation = Quaternion.Euler(0, 0, 225);
+            
+        }
+        else if (snappedAngle >= 247.5f && snappedAngle < 292.5f)
+        {
+            // down
+            transform.rotation = Quaternion.Euler(0, 0, 270);
+            
+        }
+        else if (snappedAngle >= 292.5f && snappedAngle < 337.5f)
+        {
+            // down-right
+            transform.rotation = Quaternion.Euler(0, 0, 315);
+            
+        }
 
         Flip();
     }
 
-   
 
     private void Flip()
     {
