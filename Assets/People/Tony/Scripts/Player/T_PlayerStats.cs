@@ -52,6 +52,7 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
         Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
 
+
         //apply force to the slime
         rb2d.AddForce(knockback); //ForceMode2D.Impulse
         if (currentHealth <= 0)

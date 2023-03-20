@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class T_AbilityAttack : MonoBehaviour
 {
+    //[SerializeField] Camera main;
     [SerializeField] Transform player;
     [SerializeField] T_PlayerMovement playerMovement;
 

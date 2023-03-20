@@ -29,10 +29,12 @@ public class T_MeleeHit : MonoBehaviour
 
         Collider2D enemyCollider = collision.gameObject.GetComponent<Collider2D>();
         T_EnemyStats damageableObject = collision.GetComponent<T_EnemyStats>();
+            //collision.transform.localScale = Vector3.one;
 
 
         if (damageableObject != null && meleeAttack.comboClickCount == 1)
         {
+            //collision.transform.localScale = Vector3.one;
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
@@ -59,7 +61,6 @@ public class T_MeleeHit : MonoBehaviour
 
             var enemyRot = collision.transform.DOShakeRotation(duration, strength);
 
-            collision.transform.localScale = Vector3.one;
             var enemyScale = collision.transform.DOShakeScale(duration, strength);
             if (enemyScale.IsPlaying()) return;
             damageableObject.DOComplete();
@@ -69,10 +70,11 @@ public class T_MeleeHit : MonoBehaviour
 
         else if(damageableObject != null && meleeAttack.comboClickCount == 2)
         {
+            //collision.transform.localScale = Vector3.one;
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
-            Vector2 knockbackEffect = direction * weaponBase.KnockbackForce;
+            Vector2 knockbackEffect = direction * (weaponBase.KnockbackForce * 2f);
 
             //modifiers, can add more if neccessary
             float critical = 1f;
@@ -96,10 +98,9 @@ public class T_MeleeHit : MonoBehaviour
             damageableObject.GetComponent<SpriteRenderer>().color = Color.white;
             damageableObject.GetComponent<SpriteRenderer>().DOColor(Color.red, .5f).From();
 
-            var enemyRot = collision.transform.DOShakeRotation(duration, strength);
+            var enemyRot = collision.transform.DOShakeRotation(duration, (strength + 0.2f));
 
-            collision.transform.localScale = Vector3.one;
-            var enemyScale = collision.transform.DOShakeScale(duration, strength);
+            var enemyScale = collision.transform.DOShakeScale(duration, (strength + 0.2f));
             if (enemyScale.IsPlaying()) return;
             damageableObject.DOComplete();
 
@@ -107,10 +108,11 @@ public class T_MeleeHit : MonoBehaviour
 
         else if (damageableObject != null && meleeAttack.comboClickCount == 3)
         {
+            //collision.transform.localScale = Vector3.one;
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
-            Vector2 knockbackEffect = direction * weaponBase.KnockbackForce;
+            Vector2 knockbackEffect = direction * (weaponBase.KnockbackForce * 4f);
 
             //modifiers, can add more if neccessary
             float critical = 1f;
@@ -134,10 +136,9 @@ public class T_MeleeHit : MonoBehaviour
             damageableObject.GetComponent<SpriteRenderer>().color = Color.white;
             damageableObject.GetComponent<SpriteRenderer>().DOColor(Color.red, .5f).From();
 
-            var enemyRot = collision.transform.DOShakeRotation(duration, strength);
+            var enemyRot = collision.transform.DOShakeRotation(duration, (strength + 0.4f));
 
-            collision.transform.localScale = Vector3.one;
-            var enemyScale = collision.transform.DOShakeScale(duration, strength);
+            var enemyScale = collision.transform.DOShakeScale(duration, (strength + 0.4f));
             if (enemyScale.IsPlaying()) return;
             damageableObject.DOComplete();
 

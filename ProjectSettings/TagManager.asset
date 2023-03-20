@@ -9,6 +9,10 @@ TagManager:
   - OoB
   - enemy
   - player
+  - FireArena
+  - GrassArena
+  - LightningArena
+  - WindArena
   layers:
   - Default
   - TransparentFX
