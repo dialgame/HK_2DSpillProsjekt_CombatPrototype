@@ -105,7 +105,7 @@ public class SwordAim : MonoBehaviour
 
         
 
-        Flip();
+        //Flip();
     }
 
 

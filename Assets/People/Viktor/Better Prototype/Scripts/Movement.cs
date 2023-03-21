@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
 
         
 
-        Flip();
+        //Flip();
     }
 
     private void FixedUpdate()
