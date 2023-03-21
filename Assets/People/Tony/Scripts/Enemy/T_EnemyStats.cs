@@ -6,6 +6,7 @@ using System.Runtime.ConstrainedExecution;
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] T_EnemyBase enemyBase;
 
     Rigidbody2D rb2d;
@@ -77,6 +78,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
         if (damageable != null)
         {
+            gameManager.StartCombat();
             //Non-element damage
             Vector2 direction = (playerCollider.transform.position - transform.position).normalized;
             Vector2 knockbackEffect = direction * currentKnockbackForce;
