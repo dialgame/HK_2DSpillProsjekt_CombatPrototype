@@ -104,7 +104,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
             var enemyRot = playerCollider.transform.DOShakeRotation(duration, strength);
 
-            playerCollider.transform.localScale = Vector3.one;
+            //playerCollider.transform.localScale = Vector3.one;
             var enemyScale = playerCollider.transform.DOShakeScale(duration, strength);
             if (enemyScale.IsPlaying()) return;
             playerCollider.DOComplete();

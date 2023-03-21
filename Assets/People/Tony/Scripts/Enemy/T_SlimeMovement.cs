@@ -34,6 +34,10 @@ public class T_SlimeMovement : MonoBehaviour
         {
             Vector2 direction = (detectionZone.detectedObjects[0].transform.position- transform.position).normalized;
             rb2d.AddForce(direction * enemyStats.currentMoveSpeed * Time.fixedDeltaTime);
+            
+            //resets scale after tweening
+            transform.localScale = Vector3.one;
+
         }
     }
 

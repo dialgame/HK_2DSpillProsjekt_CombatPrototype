@@ -68,6 +68,7 @@ public class T_PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
     }
 
     private void MovePlayer()
@@ -77,7 +78,8 @@ public class T_PlayerMovement : MonoBehaviour
         if (canMove == true && moveDirection != Vector2.zero)
         {
             rb2d.velocity = new Vector2(moveDirection.x * playerBase.MoveSpeed * Time.fixedDeltaTime, moveDirection.y * playerBase.MoveSpeed * Time.fixedDeltaTime);
-
+            //resets scale after tweening
+            transform.localScale = Vector3.one;
 
             if (moveDirection.x < 0)
             {
