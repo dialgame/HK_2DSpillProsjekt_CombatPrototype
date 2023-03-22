@@ -35,6 +35,7 @@ public class ThunderSpell : MonoBehaviour
 
     private void LightningStrike()
     {
+        
         aoeHitbox.enabled = true;
         childLightning.SetActive(true);
         StartCoroutine(Camera.main.GetComponent<Shake>().Shaking());
@@ -56,7 +57,10 @@ public class ThunderSpell : MonoBehaviour
 
         if (other.gameObject.tag == "enemy")
         {
-            Debug.Log("An enemy takes 518 damage!"); 
+            Debug.Log("An enemy takes 518 damage!");
+            int damageAmount = Random.Range(570, 600);
+            bool isCriticalHit = true;
+            DamageNumbers.Create(transform.position, damageAmount, isCriticalHit);
 
         }
     }
