@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2150687058097474127}
   - component: {fileID: 2150687058097474124}
   - component: {fileID: -8572438650812773503}
+  - component: {fileID: 1229716424}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Enemy
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: ec8375993bcd73a44b2493a70800cd12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33193f1c521eae34caea6d8b11d2a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   enemyBase: {fileID: 11400000, guid: 6d22d7226e3e50c4492ac0343e7767bb, type: 2}
   disableSimulation: 0
   currentHealth: 0
@@ -163,6 +165,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &1229716424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2150687058097474115}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1a233639a2bcd40b73b771fb7c978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  shatterScreen: {fileID: 0}
+  enemyBase: {fileID: 11400000, guid: 9727f836ed158e443b3a132d4a09f1d6, type: 2}
+  enemySpawner: {fileID: 0}
+  disableSimulation: 0
+  currentHealth: 0
+  currentMoveSpeed: 0
+  currentAttackDamage: 0
+  currentAttackSpeed: 0
+  currentDefense: 0
+  currentKnockbackForce: 0
+  duration: 0
+  strength: 0
+  elementResistance: {fileID: 0}
+  enemyElementType: 0
 --- !u!1 &2150687058789883066
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,14 @@ public class ShatteredScreenTestManager : MonoBehaviour
     public GameObject shatteredScreenCamera;
     public ShatteredScreen shatteredScreen;
 
+    [SerializeField] GameManager gameManager;
+    public ColorFader backgroundColorFader;
+
+    //T_PlayerStats playerStats;
+    //T_PlayerMovement playerMovement;
+   // T_EnemyStats enemyStats;
+    
+
     private void Awake()
     {
         sceneCamera.SetActive(true);
@@ -36,18 +44,21 @@ public class ShatteredScreenTestManager : MonoBehaviour
         }
     }
 
-    private void ShatterScreen()
+    public void ShatterScreen()
     {
         StartCoroutine(ShatterScreenCoroutine());
     }
 
-    private void ResetScreen()
+    public void ResetScreen()
     {
         sceneCamera.SetActive(true);
         shatteredScreen.Reset();
 
         sceneCameraCaptureCamera.SetActive(false);
         shatteredScreenCamera.SetActive(false);
+
+        gameManager.currentState = GameState.Overworld;
+        gameManager.EndCombat();
     }
 
     private IEnumerator ShatterScreenCoroutine()
@@ -60,5 +71,20 @@ public class ShatteredScreenTestManager : MonoBehaviour
         shatteredScreenCamera.SetActive(true);
 
         shatteredScreen.Shatter();
+
+        gameManager.currentState = GameState.Combat;
+        gameManager.StartCombat();
+
+        //yield return new WaitForSeconds(0.5f);
+
+        sceneCameraCaptureCamera.SetActive(false);
+        yield return null;
+        sceneCamera.SetActive(true);
+        //yield return null;
+
+        yield return new WaitForSeconds(1.5f);
+        shatteredScreenCamera.SetActive(false);
+        backgroundColorFader.ReverseColorFading();
+
     }
 }

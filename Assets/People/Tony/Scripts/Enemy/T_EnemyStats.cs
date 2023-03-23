@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System.Runtime.ConstrainedExecution;
+
+
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] T_EnemyBase enemyBase;
 
     Rigidbody2D rb2d;
@@ -30,8 +32,15 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     [SerializeField] private ElementResistanceSO elementResistance;
     [SerializeField] private ElementTypes enemyElementType; //declare which element it is in the SO
 
+    //health bar
+    [SerializeField]  HealthStatusBar healthStatusBar;
+
+    //enemy spawner
+    //public string enemyType;
+
     private void Awake()
     {
+        
         currentHealth = enemyBase.MaxHealth;
         currentMoveSpeed = enemyBase.MoveSpeed;
         currentAttackDamage = enemyBase.AttackDamage;
@@ -42,13 +51,19 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
     }
-
-    public void OnTakeDamage(ElementTypes ElementType)
+    private void Update()
     {
-        //overworld element type check when attacking or taking an attack
+
     }
 
-    public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
+    public void OnTakeDamage(Vector2 knockback, ElementTypes elementType)
+    {
+        rb2d.AddForce(knockback); //ForceMode2D.Impulse
+        Debug.Log("Player attcked the monster!");
+    }
+
+
+    public void OnTakeDamage(Vector2 knockback, ElementTypes elementType, int damage)
     {
 
         currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
@@ -73,7 +88,6 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     {
         Collider2D playerCollider = objectCollider.collider.GetComponent<Collider2D>();
         T_PlayerStats damageable = objectCollider.collider.GetComponent<T_PlayerStats>();
-        //SpriteRenderer damageableSprite = objectCollider.collider.GetComponent<SpriteRenderer>();
 
         if (damageable != null)
         {
@@ -93,7 +107,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
-            damageable.OnTakeDamage(damageOutput, knockbackEffect, enemyElementType);
+
+            damageable.OnTakeDamage(knockbackEffect, enemyElementType, damageOutput);
+           // healthStatusBar.ChangeHealth(damageOutput);
 
 
             //clears dotween effect
@@ -141,4 +157,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
     }
 
+
+    //public string GetEnemyType()
+    //{
+    //    return enemyType;
+    //}
 }

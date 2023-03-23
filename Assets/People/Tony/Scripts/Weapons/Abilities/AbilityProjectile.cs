@@ -54,7 +54,7 @@ public class AbilityProjectile : MonoBehaviour
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
-            damageableObject.OnTakeDamage(damageOutput, knockbackEffect, abilityElementType); 
+            damageableObject.OnTakeDamage(knockbackEffect, abilityElementType, damageOutput); 
          
             Destroy(gameObject);
 
