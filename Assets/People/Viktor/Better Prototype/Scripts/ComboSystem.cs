@@ -23,10 +23,7 @@ public class ComboSystem : MonoBehaviour
     private int comboClickCount;
     private ComboState comboState = ComboState.Idle;
 
-    [Header("Visual Damage Numbers")]
-    public GameObject firstDmg;
-    public GameObject secondDmg;
-    public GameObject thirdDmg;
+    
 
     [Header("Animator Component")]
     public Animator animator;
@@ -37,9 +34,7 @@ public class ComboSystem : MonoBehaviour
     {
         instance = this;
 
-        firstDmg.SetActive(false);
-        secondDmg.SetActive(false);
-        thirdDmg.SetActive(false);
+        
 
         animator = GetComponent<Animator>();
     }

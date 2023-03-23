@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
-
+using Unity.VisualScripting;
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
@@ -34,9 +33,12 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
     //health bar
     [SerializeField]  HealthStatusBar healthStatusBar;
+    private bool isCriticalHit;
 
     //enemy spawner
     //public string enemyType;
+
+
 
     private void Awake()
     {
@@ -65,9 +67,16 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
     public void OnTakeDamage(Vector2 knockback, ElementTypes elementType, int damage)
     {
-
+        if(elementType == ElementTypes.Lightning)
+        {
+            isCriticalHit = true;
+        } else
+        {
+            isCriticalHit = false;
+        }
         currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
         Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
+        DamageNumbers.Create(transform.position, elementResistance.CalculateDamageWithResistance(damage, elementType), isCriticalHit);
 
         //apply force to the slime
         rb2d.AddForce(knockback); //ForceMode2D.Impulse

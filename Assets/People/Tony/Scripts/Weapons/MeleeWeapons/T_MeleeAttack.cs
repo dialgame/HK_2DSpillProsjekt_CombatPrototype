@@ -71,9 +71,9 @@ public class T_MeleeAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = mousePos - (Vector2)player.transform.position;
-        FaceMouse();
+        //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //direction = mousePos - (Vector2)player.transform.position;
+        //FaceMouse();
 
 
             float currentTime = Time.time;

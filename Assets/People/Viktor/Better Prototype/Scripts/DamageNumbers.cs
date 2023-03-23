@@ -32,10 +32,10 @@ public class DamageNumbers : MonoBehaviour
     }
 
 
-    public void Setup(int damageAmount, bool isCriticalHit) //this sets damage to print
+    public void Setup(int damage, bool isCriticalHit) //this sets damage to print
     {
         textColor = Color.white;
-        textMesh.SetText(damageAmount.ToString());
+        textMesh.SetText(damage.ToString());
         if (!isCriticalHit)
         {
             //Normal hit

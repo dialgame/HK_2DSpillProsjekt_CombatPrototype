@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2359612920928826102}
   - component: {fileID: -3894396452442404753}
   - component: {fileID: -1492558898508206039}
+  - component: {fileID: -7028213770498189615}
   m_Layer: 0
   m_Name: THUNDERSPELL
   m_TagString: Untagged
@@ -200,3 +201,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-7028213770498189615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775363338588349241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108920fc757e95d4b92142663cd903fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponBase: {fileID: 11400000, guid: 035c0f9328c13814f94aaa3bcd322235, type: 2}
+  currentWeaponDamage: 0
+  timeToDestroy: 3
+  abilitySO: {fileID: 11400000, guid: 76bf53d5cc34e794583e457c779f8882, type: 2}
+  currentAbilityPower: 0
+  abilityElementType: 3
+  duration: 0.5
+  strength: 0.1

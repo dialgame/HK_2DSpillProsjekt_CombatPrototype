@@ -25,10 +25,10 @@ public class T_AbilityAttack : MonoBehaviour
 
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = mousePos - (Vector2)player.transform.position;
+        //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       // direction = mousePos - (Vector2)player.transform.position;
         //DirectionChecker(direction);
-        FaceMouse();
+        //FaceMouse();
         if (Input.GetMouseButtonDown(1))
         {
             if(Time.time  > readyForNextShot)
@@ -54,6 +54,8 @@ public class T_AbilityAttack : MonoBehaviour
         GameObject projectileInstantiate = Instantiate(projectilePrefab, projectilePosition.position, projectilePosition.rotation);
         projectileInstantiate.GetComponent<Rigidbody2D>().AddForce(projectileInstantiate.transform.right * currentWeaponSpeed);
     }
+
+    
 
     //public void DirectionChecker(Vector3 dir)
     //{

@@ -29,11 +29,11 @@ public class ThunderCast : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            gameObject.SetActive(false);
-            swordAiming.SetActive(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+           // gameObject.SetActive(false);
+           // swordAiming.SetActive(true);
+       // }
 
 
 

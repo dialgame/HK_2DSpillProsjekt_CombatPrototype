@@ -12,6 +12,9 @@ public class AbilityChange : MonoBehaviour
     [SerializeField] GameObject abilityHolder;
     [SerializeField] GameObject currentAbility;
 
+    [SerializeField] private GameObject thunderCast;
+    [SerializeField] private GameObject rotatePoint;
+
     [SerializeField] Transform currentPosition;
     [SerializeField] Transform previousPosition;
 
@@ -60,6 +63,10 @@ public class AbilityChange : MonoBehaviour
                 abilities[currentAbilityIndex].SetActive(true);
 
                 currentAbility = abilities[currentAbilityIndex];
+
+                rotatePoint.SetActive(false);
+                thunderCast.SetActive(true);
+                
             }
         }
 
