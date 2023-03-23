@@ -95,10 +95,11 @@ public class ComboSystem : MonoBehaviour
 
                     if (enemyInRange)
                     {
-
+                        int damageAmount = Random.Range(50, 60);
+                        bool isCriticalHit = false;
+                        DamageNumbers.Create(transform.position, damageAmount, isCriticalHit);
                         Debug.Log("Enemy hit for 52 damage");
-                        thirdDmg.SetActive(false);
-                        firstDmg.SetActive(true);
+                        
 
                     }
                 }
@@ -117,9 +118,11 @@ public class ComboSystem : MonoBehaviour
 
                 if (enemyInRange)
                 {
+                    int damageAmount = Random.Range(50, 60);
+                    bool isCriticalHit = false;
+                    DamageNumbers.Create(transform.position, damageAmount, isCriticalHit);
                     Debug.Log("Enemy hit for 61 damage");
-                    firstDmg.SetActive(false);
-                    secondDmg.SetActive(true);
+                    
                 }
 
             }
@@ -134,10 +137,11 @@ public class ComboSystem : MonoBehaviour
 
                 if (enemyInRange)
                 {
-
+                    int damageAmount = Random.Range(100, 110);
+                    bool isCriticalHit = true;
+                    DamageNumbers.Create(transform.position, damageAmount, isCriticalHit);
                     Debug.Log("Enemy hit for 96 damage");
-                    secondDmg.SetActive(false);
-                    thirdDmg.SetActive(true);
+                   
                 }
             }
 
@@ -154,9 +158,11 @@ public class ComboSystem : MonoBehaviour
 
                 if (enemyInRange)
                 {
+                    int damageAmount = Random.Range(50, 60);
+                    bool isCriticalHit = false;
+                    DamageNumbers.Create(transform.position, damageAmount, isCriticalHit);
                     Debug.Log("Enemy hit for 52 damage");
-                    thirdDmg.SetActive(false);
-                    firstDmg.SetActive(true);
+                    
                 }
             }
         }

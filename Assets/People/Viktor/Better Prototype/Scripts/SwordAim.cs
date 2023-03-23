@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwordAim : MonoBehaviour
@@ -14,6 +15,8 @@ public class SwordAim : MonoBehaviour
     private bool isFacingRight = true;
 
     public static SwordAim instance;
+
+    public GameObject ThunderAoE;
 
     private void Awake()
     {
@@ -103,7 +106,11 @@ public class SwordAim : MonoBehaviour
         }
 
 
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            gameObject.SetActive(false);
+            ThunderAoE.SetActive(true);
+        }
 
         //Flip();
     }
