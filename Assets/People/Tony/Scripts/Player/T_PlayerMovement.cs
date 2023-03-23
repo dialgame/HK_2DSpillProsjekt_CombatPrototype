@@ -26,6 +26,18 @@ public class T_PlayerMovement : MonoBehaviour
     private float cooldown;
     private float attackInterval = 1;
 
+    //Dash
+    bool isDashing;
+    private float dashTimeLeft;//how much longer the dash should be happening.
+    private float lastImageXpos;//keep track of the last x-coordinate we will replace with an afterimage
+    private float lastImageYpos;//keep track of the last x-coordinate we will replace with an afterimage
+    private float lastDash = -100f;//keep track of the last time you dashed. will be used to check for the cooldown.
+
+    public float dashTime;//how long the dash should take
+    public float dashSpeed;//how fast the player should move when dashing
+    public float distanceBetweenImages;//how far apart the afterImage GO should be placen when dashing.'
+    public float dashCooldown;//how long we have to wait before we can Dash again.
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -36,6 +48,7 @@ public class T_PlayerMovement : MonoBehaviour
     void Update()
     {
         InputManagement();
+        CheckDash();
        // Flip();
     }
 
@@ -62,6 +75,16 @@ public class T_PlayerMovement : MonoBehaviour
         if (moveDirection.x != 0 && moveDirection.y != 0)
         {
             lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector); //last diagonal movement vectors
+        }
+
+        //Dash
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(Time.time >= (lastDash + dashCooldown))
+            {
+                AttemptToDash();//only able to dash after cooldown
+
+            }
         }
     }
 
@@ -114,13 +137,62 @@ public class T_PlayerMovement : MonoBehaviour
         }
     }
 
+    private void AttemptToDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashTime;
+        lastDash = Time.time;
+
+        AfterImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
+        lastImageYpos = transform.position.y;
+    }
+
+    private void CheckDash()//setting the dash velocity, and checks if we should be dashing or stop
+    {
+        if (isDashing)
+        {
+            if(dashTimeLeft > 0)
+            {
+                canMove= false;
+                isFacingRight = false;
+
+                rb2d.velocity = new Vector2(dashSpeed * moveDirection.x, dashSpeed * moveDirection.y);
+                dashTimeLeft -= Time.deltaTime;
+
+                if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)//checks if enough distance has passed for us to place another iamge
+                {
+                    AfterImagePool.Instance.GetFromPool();
+                    lastImageXpos = transform.position.x;
+                }
+
+                if (Mathf.Abs(transform.position.y - lastImageYpos) > distanceBetweenImages)//checks if enough distance has passed for us to place another iamge
+                {
+                    AfterImagePool.Instance.GetFromPool();
+                    lastImageYpos = transform.position.y;
+                }
+
+
+            }
+
+            if(dashTimeLeft <= 0)
+            {
+                isDashing = false;
+                canMove = true;
+                isFacingRight  = true;
+            }
+        }
+    }
+
     public void LockMovement()
     {
         canMove = false;
+            isFacingRight = false;
     }
 
     public void UnlockMovement()
     {
         canMove = true;
+            isFacingRight = true;
     }
 }
