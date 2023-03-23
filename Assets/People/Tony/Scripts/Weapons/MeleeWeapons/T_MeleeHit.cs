@@ -23,7 +23,10 @@ public class T_MeleeHit : MonoBehaviour
         currentWeaponDamage = weaponBase.WeaponDamage;
     
     }
+    private void Update()
+    {
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -52,7 +55,7 @@ public class T_MeleeHit : MonoBehaviour
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
-            damageableObject.OnTakeDamage(damageOutput, knockbackEffect, weaponElementType);
+            damageableObject.OnTakeDamage(knockbackEffect, weaponElementType, damageOutput);
            // Debug.Log("First HIT!");
 
             damageableObject.DOKill();
@@ -70,7 +73,6 @@ public class T_MeleeHit : MonoBehaviour
 
         else if(damageableObject != null && meleeAttack.comboClickCount == 2)
         {
-            //collision.transform.localScale = Vector3.one;
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
@@ -91,8 +93,7 @@ public class T_MeleeHit : MonoBehaviour
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers * comboModifier);//Final dmg value rounded to int.
 
-            damageableObject.OnTakeDamage(damageOutput, knockbackEffect, weaponElementType);
-           // Debug.Log("Second HIT!");
+            damageableObject.OnTakeDamage(knockbackEffect, weaponElementType, damageOutput);
 
             damageableObject.DOKill();
             damageableObject.GetComponent<SpriteRenderer>().color = Color.white;
@@ -108,7 +109,6 @@ public class T_MeleeHit : MonoBehaviour
 
         else if (damageableObject != null && meleeAttack.comboClickCount == 3)
         {
-            //collision.transform.localScale = Vector3.one;
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
@@ -129,7 +129,7 @@ public class T_MeleeHit : MonoBehaviour
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers * comboModifier);//Final dmg value rounded to int.
 
-            damageableObject.OnTakeDamage(damageOutput, knockbackEffect, weaponElementType);
+            damageableObject.OnTakeDamage(knockbackEffect, weaponElementType, damageOutput);
             Debug.Log("Third HIT!");
 
             damageableObject.DOKill();

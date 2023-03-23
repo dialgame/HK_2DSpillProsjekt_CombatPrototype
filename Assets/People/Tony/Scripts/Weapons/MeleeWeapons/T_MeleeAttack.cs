@@ -65,9 +65,6 @@ public class T_MeleeAttack : MonoBehaviour
         currentWeaponSpeed = weaponBase.WeaponSpeed;
         instance = this;
 
-        firstDmg.SetActive(false);
-        secondDmg.SetActive(false);
-        thirdDmg.SetActive(false);
         weaponAnimator = GetComponent<Animator>();
     }
     private void Update()
@@ -193,7 +190,18 @@ public class T_MeleeAttack : MonoBehaviour
         Debug.Log("detected");
     }
 
+    public void CollisionDetected(MeleeOverworldHit meleeHit)
+    {
+        enemyInRange = true;
+        Debug.Log("detected");
+    }
+
     public void CollisionExit(T_MeleeHit meleeHit)
+    {
+        enemyInRange = false;
+        Debug.Log("collision exit");
+    }
+    public void CollisionExit(MeleeOverworldHit meleeHit)
     {
         enemyInRange = false;
         Debug.Log("collision exit");

@@ -22,6 +22,8 @@ public class ShatteredScreen : MonoBehaviour
 
     //BG fading effect
     public ColorFader backgroundColorFader;
+
+    //GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,24 +109,24 @@ public class ShatteredScreen : MonoBehaviour
 
     }
 
-    private IEnumerator ShatterCoroutine()
-    {
-        for (int i = 0; i < screenPieces.Length; i++)
-        {
-            if (reset) //if reset is True
-            {
-                i = screenPieces.Length;
-            }
-            else
-            {
-                screenPieces[i].SetActive(false);
+    //private IEnumerator ShatterCoroutine()
+    //{
+    //    for (int i = 0; i < screenPieces.Length; i++)
+    //    {
+    //        if (reset) //if reset is True
+    //        {
+    //            i = screenPieces.Length;
+    //        }
+    //        else
+    //        {
+    //            screenPieces[i].SetActive(false);
 
-                yield return new WaitForSeconds(0.0005f); //creates delay after each piece.
+    //            yield return new WaitForSeconds(0.0005f); //creates delay after each piece.
 
-            }
+    //        }
 
-        }
-    }
+    //    }
+    //}
 
 }
 
