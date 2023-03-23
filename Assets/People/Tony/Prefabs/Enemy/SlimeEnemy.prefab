@@ -172,13 +172,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2150687058097474115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b1a233639a2bcd40b73b771fb7c978a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
   shatterScreen: {fileID: 0}
   enemyBase: {fileID: 11400000, guid: 9727f836ed158e443b3a132d4a09f1d6, type: 2}
+  enemySpawner: {fileID: 0}
   disableSimulation: 0
   currentHealth: 0
   currentMoveSpeed: 0

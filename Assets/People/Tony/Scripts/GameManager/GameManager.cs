@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     {
         originalPlayerPosition = player.transform.position;
 
-       // player.GetComponent<Player>().SetOverworldMoveSet();
     }
 
     // Update is called once per frame
@@ -61,18 +60,6 @@ public class GameManager : MonoBehaviour
 
         player.transform.position = combatLocationPlayer.transform.position;
 
-        //player.SetCombatMoveSet();
-
-        ////Spawn enemy
-        //int enemyAmount = Random.Range(1, maxEnemies + 1);
-        //for (int i = 0; i < enemyAmount; i++)
-        //{
-        //    //GameObject newEnemy = Instantiate(enemyPrefabs.First(e => e.GetComponent<Enemy>().enemyType == enemyType), combatLocationEnemy.transform.position, Quaternion.identity);
-        //    GameObject newEnemy = Instantiate(enemyPrefabs.First(e => e.GetComponent<Enemy>().enemyType == encounteredEnemy.enemyType), combatLocationEnemy.transform.position, Quaternion.identity);
-
-        //    newEnemy.GetComponent<Enemy>().SetCombatMoveSet();
-
-        //}
         originalPlayerPosition = playerPosition;
     }
 
@@ -81,49 +68,8 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Overworld;
 
         player.transform.position = originalPlayerPosition;
-        //player.GetComponent<Player>().SetOverworldMoveSet();
     }
 
 
-
-    //void SpawnEnemies(Vector3 playerPosition)
-    //{
-    //    // spawn up to maxEnemies enemies within enemySpawnDistance of the player
-    //    for (int i = 0; i < maxEnemies; i++)
-    //    {
-    //        Vector3 spawnPosition = GetRandomSpawnPosition(playerPosition);
-    //        GameObject enemyPrefab = GetRandomEnemyPrefab();
-    //        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-    //        spawnedEnemies.Add(enemy);
-    //    }
-    //}
-
-    //Vector3 GetRandomSpawnPosition(Vector3 playerPosition)
-    //{
-    //    // keep trying to find an unoccupied position until we succeed
-    //    while (true)
-    //    {
-    //        // generate a random position within enemySpawnDistance of the player
-    //        Vector3 randomOffset = Random.insideUnitCircle.normalized * enemySpawnDistance;
-    //        Vector3 spawnPosition = playerPosition + randomOffset;
-
-    //        // check if there is already an enemy at this position
-    //        bool positionOccupied = false;
-    //        foreach (GameObject enemy in spawnedEnemies)
-    //        {
-    //            if (Vector3.Distance(enemy.transform.position, spawnPosition) < 1f)
-    //            {
-    //                positionOccupied = true;
-    //                break;
-    //            }
-    //        }
-
-    //        // if the position is unoccupied, return it
-    //        if (!positionOccupied)
-    //        {
-    //            return spawnPosition;
-    //        }
-    //    }
-    //}
 
 }

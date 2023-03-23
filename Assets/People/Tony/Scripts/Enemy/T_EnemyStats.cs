@@ -32,6 +32,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     [SerializeField] private ElementResistanceSO elementResistance;
     [SerializeField] private ElementTypes enemyElementType; //declare which element it is in the SO
 
+    //health bar
+    [SerializeField]  HealthStatusBar healthStatusBar;
+
     //enemy spawner
     //public string enemyType;
 
@@ -48,6 +51,10 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
     }
+    private void Update()
+    {
+
+    }
 
     public void OnTakeDamage(Vector2 knockback, ElementTypes elementType)
     {
@@ -56,7 +63,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     }
 
 
-    public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
+    public void OnTakeDamage(Vector2 knockback, ElementTypes elementType, int damage)
     {
 
         currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
@@ -81,11 +88,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     {
         Collider2D playerCollider = objectCollider.collider.GetComponent<Collider2D>();
         T_PlayerStats damageable = objectCollider.collider.GetComponent<T_PlayerStats>();
-        //SpriteRenderer damageableSprite = objectCollider.collider.GetComponent<SpriteRenderer>();
 
         if (damageable != null)
         {
-            //gameManager.StartCombat();
             //Non-element damage
             Vector2 direction = (playerCollider.transform.position - transform.position).normalized;
             Vector2 knockbackEffect = direction * currentKnockbackForce;
@@ -102,7 +107,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
             int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
-            damageable.OnTakeDamage(damageOutput, knockbackEffect, enemyElementType);
+
+            damageable.OnTakeDamage(knockbackEffect, enemyElementType, damageOutput);
+           // healthStatusBar.ChangeHealth(damageOutput);
 
 
             //clears dotween effect

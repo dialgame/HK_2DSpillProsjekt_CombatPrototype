@@ -19,9 +19,18 @@ public class MeleeOverworldHit : MonoBehaviour
     [SerializeField] float duration;
     [SerializeField] float strength;
 
+    //enemy spawn
+    [SerializeField] PlayerAttackSpawner playerAttackSpawner;
+    [SerializeField] EnemyAttackSpawner enemyAttackSpawner;
+    public EnemyType enemyType;
+
     private void Awake()
     {
         currentWeaponDamage = weaponBase.WeaponDamage;
+
+    }
+    private void Update()
+    {
 
     }
 
@@ -35,6 +44,7 @@ public class MeleeOverworldHit : MonoBehaviour
         if (damageableObject != null && meleeAttack.comboClickCount == 1)
         {
             shatterScreen.ShatterScreen();
+
             transform.parent.GetComponent<T_MeleeAttack>().CollisionDetected(this);
 
             Vector2 direction = (enemyCollider.transform.position - transform.position).normalized;
@@ -53,6 +63,13 @@ public class MeleeOverworldHit : MonoBehaviour
             //int damageOutput = Mathf.FloorToInt(damageValue * modifiers);//Final dmg value rounded to int.
 
             damageableObject.OnTakeDamage(knockbackEffect, weaponElementType);
+
+            playerAttackSpawner.SpawnEnemies();
+            playerAttackSpawner.enabled = false;
+            enemyAttackSpawner.enabled = false;
+
+
+
 
             damageableObject.DOKill();
             damageableObject.GetComponent<SpriteRenderer>().color = Color.white;

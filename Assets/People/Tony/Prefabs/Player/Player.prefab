@@ -772,7 +772,6 @@ GameObject:
   - component: {fileID: 8097272912206417214}
   - component: {fileID: 8097272912206417213}
   - component: {fileID: 8097272912206417208}
-  - component: {fileID: 699738183}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -930,25 +929,6 @@ MonoBehaviour:
   currentMagnet: 0
   elementResistance: {fileID: 11400000, guid: 755d21b8e09c9bd4d9082848e22f5b65, type: 2}
   invincibilityDuration: 0
---- !u!114 &699738183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8097272912206417202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddd27efa20ba7245a620590fbac31ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterScreen: {fileID: 0}
-  weaponBase: {fileID: 11400000, guid: 7b60e8623bda01b408dd6b7e1ce08a4c, type: 2}
-  currentWeaponDamage: 0
-  weaponElementType: 0
-  meleeAttack: {fileID: 731611281}
-  duration: 0
-  strength: 0
 --- !u!1001 &5254286129883450275
 PrefabInstance:
   m_ObjectHideFlags: 0

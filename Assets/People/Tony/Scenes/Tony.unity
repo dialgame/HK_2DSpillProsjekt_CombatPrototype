@@ -3936,25 +3936,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3665e375b6117d4cb5949274acb1383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &699738183
+--- !u!114 &699738184 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8097272912206417213, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699738171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddd27efa20ba7245a620590fbac31ee, type: 3}
+  m_Script: {fileID: 11500000, guid: da6450cda425738489bbdac3fabaeeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shatterScreen: {fileID: 1584396906}
-  weaponBase: {fileID: 11400000, guid: 7b60e8623bda01b408dd6b7e1ce08a4c, type: 2}
-  currentWeaponDamage: 0
-  weaponElementType: 0
-  meleeAttack: {fileID: 2011000169}
-  duration: 0
-  strength: 0
+--- !u!4 &699738188 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8097272912206417212, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &704295018 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129780580720562084, guid: bb21b807f99a8444aaee4e807ed35d4b, type: 3}
@@ -5767,6 +5764,71 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1163369068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2150687058097474115, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  m_PrefabInstance: {fileID: 2150687059321495013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1163369076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163369068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217d65ebee2338742af7d11596f4af91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 699738188}
+  playerOverworldMoveSet: {fileID: 1751053216}
+  playerCombatMoveSet: {fileID: 1751053217}
+  playerOverworldMovement: {fileID: 699738184}
+  enemyCombatMoveset: {fileID: 1163369079}
+  enemyOverworldMoveset: {fileID: 1163369077}
+  enemyOverworldMovement: {fileID: 1163369080}
+  enemyType: 0
+  slimePrefabs:
+  - {fileID: 2150687058097474115, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  lionPrefabs: []
+  minDistanceToPlayer: 6
+  minDistanceBetweenEnemies: 3
+  combatArena: {fileID: 8176697}
+  shatterScreenManager: {fileID: 1584396905}
+--- !u!114 &1163369077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  m_PrefabInstance: {fileID: 2150687059321495013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163369068}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1a233639a2bcd40b73b771fb7c978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1163369079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2150687058097474124, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  m_PrefabInstance: {fileID: 2150687059321495013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163369068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33193f1c521eae34caea6d8b11d2a4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1163369080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2150687058097474127, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  m_PrefabInstance: {fileID: 2150687059321495013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163369068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1e0da8300001047b78dc5450a7b33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172921032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2013708376385591173, guid: bb21b807f99a8444aaee4e807ed35d4b, type: 3}
@@ -7537,6 +7599,60 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1751053214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1998060811, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1751053216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751053214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddd27efa20ba7245a620590fbac31ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751053217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998060814, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+  m_PrefabInstance: {fileID: 8097272911587079940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751053214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c92bfad40f72b54cb8d9be95027fcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751053219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751053214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d662798c6ac00af4b83a63932db97e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 699738188}
+  playerOverworldMoveSet: {fileID: 1751053216}
+  playerCombatMoveSet: {fileID: 1751053217}
+  playerOverworldMovement: {fileID: 699738184}
+  enemyType: 0
+  enemyCombatMoveset: {fileID: 1163369079}
+  enemyOverworldMoveset: {fileID: 1163369077}
+  enemyOverworldMovement: {fileID: 1163369080}
+  slimePrefabs:
+  - {fileID: 2150687058097474115, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+  lionPrefabs: []
+  minDistanceToPlayer: 5
+  minDistanceBetweenEnemies: 2
+  combatArena: {fileID: 8176697}
+  shatterScreenManager: {fileID: 1584396905}
 --- !u!1 &1754157337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2704182150858096188, guid: bb21b807f99a8444aaee4e807ed35d4b, type: 3}
@@ -8221,17 +8337,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2011000169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 731611281, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
-  m_PrefabInstance: {fileID: 8097272911587079940}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3725f0a85e5644bb7713e9dab3bc93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2025178841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7486335851949110621, guid: bb21b807f99a8444aaee4e807ed35d4b, type: 3}
@@ -8559,9 +8664,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9727f836ed158e443b3a132d4a09f1d6, type: 2}
     - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: combatArena
       value: 
       objectReference: {fileID: 8176697}
+    - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 1163369076}
     - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: shatterScreen
       value: 
@@ -8570,6 +8683,14 @@ PrefabInstance:
       propertyPath: minDistanceToPlayer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: playerAttackSpawner
+      value: 
+      objectReference: {fileID: 1751053219}
+    - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: shatterScreenManager
+      value: 
+      objectReference: {fileID: 1584396905}
     - target: {fileID: 1229716424, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: slimePrefabs.Array.size
       value: 1
@@ -8594,6 +8715,10 @@ PrefabInstance:
       propertyPath: enemyBase
       value: 
       objectReference: {fileID: 11400000, guid: 6d22d7226e3e50c4492ac0343e7767bb, type: 2}
+    - target: {fileID: 2150687058097474124, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
+      propertyPath: healthStatusBar
+      value: 
+      objectReference: {fileID: 645453372}
     - target: {fileID: 2150687058097474125, guid: 0f50574ba28be994fb329a7ae6a49937, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8663,6 +8788,42 @@ PrefabInstance:
       propertyPath: shatterScreen
       value: 
       objectReference: {fileID: 1584396906}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: enemyAttackSpawner
+      value: 
+      objectReference: {fileID: 1163369076}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: enemyCombatMoveset
+      value: 
+      objectReference: {fileID: 1163369079}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: playerAttackSpawner
+      value: 
+      objectReference: {fileID: 1751053219}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: playerCombatMoveSet
+      value: 
+      objectReference: {fileID: 1751053217}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: shatterScreenManager
+      value: 
+      objectReference: {fileID: 1584396905}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: enemyOverworldMoveset
+      value: 
+      objectReference: {fileID: 1163369077}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: enemyOverworldMovement
+      value: 
+      objectReference: {fileID: 1163369080}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: playerOverworldMoveSet
+      value: 
+      objectReference: {fileID: 1751053216}
+    - target: {fileID: 1628466346, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: playerOverworldMovement
+      value: 
+      objectReference: {fileID: 699738184}
     - target: {fileID: 8097272912206417202, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8727,5 +8888,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 699738183, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}

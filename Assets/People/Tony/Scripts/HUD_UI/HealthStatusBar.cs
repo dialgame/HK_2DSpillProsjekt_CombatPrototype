@@ -17,6 +17,7 @@ public class HealthStatusBar : MonoBehaviour
 
     public float damageAmount = 10f; //manaCost
     public float healAmount = 10f; //manaRefresh
+    
 
    // public TextMeshProUGUI text;
 
