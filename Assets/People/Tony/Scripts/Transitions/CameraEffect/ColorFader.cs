@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ColorFader : MonoBehaviour
 {
-    private Color fromColor = new Color(1f, 1f, 1f);//white/default
-    private Color toColor = new Color(0f, 0f, 0f); //black
+    private Color fromWhiteColor = new Color(1f, 1f, 1f);//white/default
+    private Color toBlackColor = new Color(0f, 0f, 0f); //black
     private Material material;
 
+    private Color fromBlackColor = new Color(0f, 0f, 0f,1f);//white/default
+    private Color toTransparentColor = new Color(0f, 0f, 0f, 0f); //black
     private bool reset = false;
     // Start is called before the first frame update
     void Start()
@@ -15,16 +17,10 @@ public class ColorFader : MonoBehaviour
         material = GetComponent<Renderer>().material;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Reset()
     {
         reset = true;
-        material.color = fromColor;
+        material.color = fromWhiteColor;
     }
 
     public void StartColorFading()
@@ -45,7 +41,7 @@ public class ColorFader : MonoBehaviour
             }
             else
             {
-                material.color = Color.Lerp(fromColor, toColor, t);
+                material.color = Color.Lerp(fromWhiteColor, toBlackColor, t);
                 t += Time.deltaTime; //change this value to change the speed of fading.
                 yield return null;
 
@@ -54,7 +50,39 @@ public class ColorFader : MonoBehaviour
 
         if (!reset)
         {
-            material.color = toColor;
+            material.color = toBlackColor;
+
+        }
+
+    }
+
+    public void ReverseColorFading()
+    {
+        StartCoroutine(ReverseColorFadingCoroutine());
+    }
+
+    private IEnumerator ReverseColorFadingCoroutine()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            if (reset)
+            {
+                t = 1f; //go out of loop
+            }
+            else
+            {
+                material.color = Color.Lerp(fromBlackColor, toTransparentColor, t);
+                t += Time.deltaTime; //change this value to change the speed of fading.
+                yield return null;
+
+            }
+        }
+
+        if (!reset)
+        {
+            material.color = toTransparentColor;
 
         }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class T_PlayerStats : MonoBehaviour, T_IDamageable
 {
     [SerializeField] T_PlayerBase playerBase;
+    [SerializeField] HealthStatusBar healthStatusBar;
     Rigidbody2D rb2d;
     Collider2D col2d;
 
@@ -50,8 +51,9 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
     public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
     {
         currentHealth -= elementResistance.CalculateDamageWithResistance(damage, elementType);
-        Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
+        healthStatusBar.ChangeHealth(elementResistance.CalculateDamageWithResistance(damage, elementType));
 
+        Debug.Log(elementResistance.CalculateDamageWithResistance(damage, elementType));
 
         //apply force to the slime
         rb2d.AddForce(knockback); //ForceMode2D.Impulse
@@ -61,9 +63,10 @@ public class T_PlayerStats : MonoBehaviour, T_IDamageable
         }
     }
 
-    public void OnTakeDamage(ElementTypes elementType)
+    public void OnTakeDamage(Vector2 knockback, ElementTypes elementType)
     {
-        throw new System.NotImplementedException();
+        rb2d.AddForce(knockback); //ForceMode2D.Impulse
+        Debug.Log("Monster attacked you!");
     }
 
 

@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         originalPlayerPosition = playerPosition;
     }
 
-    void EndCombat()
+    public void EndCombat()
     {
         currentState = GameState.Overworld;
 

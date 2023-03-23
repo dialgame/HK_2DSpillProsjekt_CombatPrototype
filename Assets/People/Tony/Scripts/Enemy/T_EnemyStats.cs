@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System.Runtime.ConstrainedExecution;
+
+
 
 public class T_EnemyStats : MonoBehaviour, T_IDamageable
 {
@@ -31,8 +32,12 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
     [SerializeField] private ElementResistanceSO elementResistance;
     [SerializeField] private ElementTypes enemyElementType; //declare which element it is in the SO
 
+    //enemy spawner
+    //public string enemyType;
+
     private void Awake()
     {
+        
         currentHealth = enemyBase.MaxHealth;
         currentMoveSpeed = enemyBase.MoveSpeed;
         currentAttackDamage = enemyBase.AttackDamage;
@@ -44,10 +49,12 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
         col2d = GetComponent<Collider2D>();
     }
 
-    public void OnTakeDamage(ElementTypes ElementType)
+    public void OnTakeDamage(Vector2 knockback, ElementTypes elementType)
     {
-        //overworld element type check when attacking or taking an attack
+        rb2d.AddForce(knockback); //ForceMode2D.Impulse
+        Debug.Log("Player attcked the monster!");
     }
+
 
     public void OnTakeDamage(int damage, Vector2 knockback, ElementTypes elementType)
     {
@@ -78,7 +85,7 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
         if (damageable != null)
         {
-            gameManager.StartCombat();
+            //gameManager.StartCombat();
             //Non-element damage
             Vector2 direction = (playerCollider.transform.position - transform.position).normalized;
             Vector2 knockbackEffect = direction * currentKnockbackForce;
@@ -143,4 +150,9 @@ public class T_EnemyStats : MonoBehaviour, T_IDamageable
 
     }
 
+
+    //public string GetEnemyType()
+    //{
+    //    return enemyType;
+    //}
 }

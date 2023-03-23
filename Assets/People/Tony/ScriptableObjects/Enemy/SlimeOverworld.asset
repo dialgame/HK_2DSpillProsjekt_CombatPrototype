@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52de25620199113419b8ca3de4f5c913, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: b9357bf945238ab4f917a4f6846a9ae0, type: 3}
+  m_Name: SlimeOverworld
   m_EditorClassIdentifier: 
+  moveSpeed: 500
   maxHealth: 1000
-  maxMana: 100
-  moveSpeed: 250
-  attackDamage: 10
-  attackSpeed: 1
+  attackDamage: 0
+  attackSpeed: 0
   defense: 1
-  magnet: 0
+  knockbackForce: 6000
