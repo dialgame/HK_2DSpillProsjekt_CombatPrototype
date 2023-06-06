@@ -267,9 +267,6 @@ MonoBehaviour:
   thirdClickCooldown: 0.7
   comboResetCooldown: 1
   enemyInRange: 0
-  firstDmg: {fileID: 1832771248}
-  secondDmg: {fileID: 816480826}
-  thirdDmg: {fileID: 113814376}
   animator: {fileID: 0}
 --- !u!1 &497728909
 GameObject:
@@ -413,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  thunderStrike: {fileID: 8300000, guid: a81fd34a4540ca549949219223eab558, type: 3}
+  thunderStrike: {fileID: 8300000, guid: e4d1c07883a2e8a4f815c6a7af5dfed8, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +423,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -546,6 +544,39 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 0.3
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &816480826
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimPoint: {fileID: 962263112}
-  thunderSpell: {fileID: 6775363338588349241, guid: 5fe00905d66c0b5458d646f909c32746, type: 3}
+  thunderSpell: {fileID: 6597616195090062151, guid: 19d12ffb68f88384293afabb85dc9987, type: 3}
   swordAiming: {fileID: 69702052}
 --- !u!212 &962263114
 SpriteRenderer:
@@ -789,7 +820,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.37010074, b: 1, a: 0.4392157}
+  m_Color: {r: 0.7176471, g: 0.22352941, b: 0, a: 0.4392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

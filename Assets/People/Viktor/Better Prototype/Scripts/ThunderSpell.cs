@@ -39,9 +39,9 @@ public class ThunderSpell : MonoBehaviour
         aoeHitbox.enabled = true;
         childLightning.SetActive(true);
         StartCoroutine(Camera.main.GetComponent<Shake>().Shaking());
-        sr.color = new Color(0, 94, 255, 0);
+        sr.color = new Color(149, 94, 255, 255);
         Debug.Log("The wrath of Thor is on your hands!");
-        viktorAudioManager.instance.audioSource.PlayOneShot(viktorAudioManager.instance.thunderStrike);
+        //viktorAudioManager.instance.audioSource.PlayOneShot(viktorAudioManager.instance.thunderStrike);
         Invoke("RemoveThunderSpell", 0.5f);
     }
 

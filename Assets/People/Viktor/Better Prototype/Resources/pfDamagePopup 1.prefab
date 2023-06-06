@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2242349250233967329}
   - component: {fileID: 8149628339935275827}
   - component: {fileID: 1460043075880869912}
-  - component: {fileID: 4933922685365192732}
+  - component: {fileID: 786064299090560451}
   m_Layer: 0
   m_Name: pfDamagePopup 1
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1095381179
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1460043075880869912
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8149628339935275827}
   m_maskType: 0
---- !u!114 &4933922685365192732
+--- !u!114 &786064299090560451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,6 +182,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6611480505882551855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643ddf876f5cc03488229d4c64046100, type: 3}
+  m_Script: {fileID: 11500000, guid: 9101bf23d7bc05c4d90e659a246a876a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

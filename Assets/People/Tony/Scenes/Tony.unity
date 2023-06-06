@@ -9080,6 +9080,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 731611280, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ebebf90c687ab864c93701339b91af28, type: 3}
     - target: {fileID: 731611281, guid: e5657cb888f00ba4090de30e4016fa90, type: 3}
       propertyPath: firstDmg
       value: 

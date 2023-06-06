@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThunderCast : MonoBehaviour
+public class EarthCast : MonoBehaviour
 {
     public GameObject aimPoint;
     public GameObject thunderSpell;
